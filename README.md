@@ -150,3 +150,6 @@ and writes `REVIEW.md` plus `runs/<model>/review.json`, whose scores `summary.py
 | `tools/agent-dsh.sh`, `dsh-agent/` | the DeepSeek Harness agent (a model's `agent_command`) and its state |
 | `.env` | optional API keys (`NAME=value`) for models' `api_key_env`, read when the variable isn't set |
 | `tools/export.sh` | make a shareable copy without your config, models, private cases and results |
+
+## License
+MIT, see [LICENSE](LICENSE). `web/vendor/` holds highlight.js, which is BSD 3-Clause licensed by its authors.
