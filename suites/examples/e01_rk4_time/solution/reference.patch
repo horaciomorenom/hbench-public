@@ -1,0 +1,13 @@
+--- a/numerics/ode.py
++++ b/numerics/ode.py
+@@ -6,8 +6,8 @@
+ def rk4_step(f, t, y, dt):
+     """One classical fourth-order Runge-Kutta step of size dt from (t, y)."""
+     k1 = f(t, y)
+-    k2 = f(t, y + 0.5 * dt * k1)
+-    k3 = f(t, y + 0.5 * dt * k2)
++    k2 = f(t + 0.5 * dt, y + 0.5 * dt * k1)
++    k3 = f(t + 0.5 * dt, y + 0.5 * dt * k2)
+     k4 = f(t + dt, y + dt * k3)
+     return y + dt / 6.0 * (k1 + 2.0 * k2 + 2.0 * k3 + k4)
+ 

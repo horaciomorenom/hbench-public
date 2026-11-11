@@ -1,0 +1,15 @@
+# Your machine and your results stay local
+config.json
+models.json
+pi-agent/models.json
+pi-agent/auth.json
+pi-agent/models-store.json
+.env
+dsh-agent/
+suites/cases.local.json
+runs/
+web/jobs/
+web/app.log
+.venv/
+__pycache__/
+.DS_Store

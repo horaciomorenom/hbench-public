@@ -1,0 +1,86 @@
+[
+ {
+  "id": "l01",
+  "title": "Add a results table to a document",
+  "budget_tokens": 300,
+  "prompt": "prompts/l01.md",
+  "oracle_notes": "booktabs table in the right place with its caption above, right-aligned numbers and a working reference; rows are read from the rendered page; the other text unchanged."
+ },
+ {
+  "id": "l02",
+  "title": "Table with grouped headers",
+  "budget_tokens": 350,
+  "prompt": "prompts/l02.md",
+  "oracle_notes": "multicolumn group headers with cmidrules, multirow; rows read from the rendered page; bold exactly on 0.42, 1.71, 8.15 and 64.3 (the faster time per row)."
+ },
+ {
+  "id": "l03",
+  "title": "Fix a table that runs off the page",
+  "budget_tokens": 450,
+  "prompt": "prompts/l03.md",
+  "oracle_notes": "tabularx or p columns; no overfull boxes and every word inside the margins in the PDF. Scaling, makebox, landscape, tiny fonts and changed margins are rejected."
+ },
+ {
+  "id": "l04",
+  "title": "Typeset mathematics from plain text",
+  "budget_tokens": 450,
+  "prompt": "prompts/l04.md",
+  "oracle_notes": "Four numbers exactly: (1) pde, (2) bc, (3) source, (4) weak form, the last on the second line of its align. The stiffness matrix display is unnumbered."
+ },
+ {
+  "id": "l05",
+  "title": "Repair a broken document",
+  "budget_tokens": 500,
+  "prompt": "prompts/l05.md",
+  "oracle_notes": "Ten faults: geometry brace, grid_size, 50% (silently drops text), &, itemize/enumerate mismatch, misspelled sec:setup label, unclosed \\\\frac, missing graphicx, label before caption (Figure prints the section number), literal $."
+ },
+ {
+  "id": "l06",
+  "title": "Theorem environments and cross-references",
+  "budget_tokens": 350,
+  "prompt": "prompts/l06.md",
+  "oracle_notes": "amsthm with one shared section-numbered counter, definition style for the definition, hyperref before cleveref, cleveref printing the type names."
+ },
+ {
+  "id": "l07",
+  "title": "Side-by-side subfigures",
+  "budget_tokens": 350,
+  "prompt": "prompts/l07.md",
+  "oracle_notes": "subcaption, two subfigure environments; (a) and (b) on one line in the PDF; references print Figure 1a and 1b."
+ },
+ {
+  "id": "l08",
+  "title": "Algorithm pseudocode",
+  "budget_tokens": 500,
+  "prompt": "prompts/l08.md",
+  "oracle_notes": "PCG: alpha = r^T z / p^T A p, x += alpha p, r -= alpha A p, z = M^-1 r, beta = new r^T z / old r^T z, p = z + beta p. Math is checked by heuristics; a judge should confirm it."
+ },
+ {
+  "id": "l09",
+  "title": "TikZ flowchart",
+  "budget_tokens": 600,
+  "prompt": "prompts/l09.md",
+  "oracle_notes": "Six named nodes and six arrows (with the loop refine to assemble). The nodes' real boxes come from a probe compile, so overlaps are measured. Judge: the back edge shouldn't cross nodes."
+ },
+ {
+  "id": "l10",
+  "title": "TikZ weighted graph and its spanning tree",
+  "budget_tokens": 700,
+  "prompt": "prompts/l10.md",
+  "oracle_notes": "MST (Kruskal): a-c 2, c-e 3, a-b 4, d-f 6, d-e 7, total 22. b-c 5 would close a cycle."
+ },
+ {
+  "id": "l11",
+  "title": "TikZ geometry: exact coordinates",
+  "budget_tokens": 600,
+  "prompt": "prompts/l11.md",
+  "oracle_notes": "With r = 2 cm and 30 degrees: P = (1.732, 1), Q = (1.732, 0), A = (2, 0), T = (2, 1.1547). Positions measured by the probe compile, tolerance 0.1 mm."
+ },
+ {
+  "id": "l12",
+  "title": "pgfplots convergence plot",
+  "budget_tokens": 500,
+  "prompt": "prompts/l12.md",
+  "oracle_notes": "Reference line: y = 1.55 h^2, through (0.2, 6.2e-2). All twelve data values must appear in the axis."
+ }
+]

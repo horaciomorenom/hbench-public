@@ -1,0 +1,16 @@
+{
+ "_comment": "Copy to config.json. Every field is optional; delete the ones you don't need.",
+ "_python": "The Python the graders run with (needs numpy, scipy, matplotlib). Default: .venv/bin/python if it exists, else python3.",
+ "python": ".venv/bin/python",
+ "_hooks": "before_start runs before hbench starts a model server ({log} = the run's log file), e.g. to wait until other GPU jobs finish. wrap is put in front of each serve script, e.g. a memory watchdog: \"MINFREE=3 /path/to/guard.sh\".",
+ "hooks": {
+  "before_start": "",
+  "wrap": ""
+ },
+ "_keep_awake": "Keep the machine awake while the queue runs (macOS caffeinate, Linux systemd-inhibit; always off on WSL).",
+ "keep_awake": true,
+ "_pdf_browser": "Chrome/Chromium/Edge used to print judge packets as PDF. Default: found automatically.",
+ "pdf_browser": "",
+ "_agent_command": "Long tier agent. Empty = pi (npm install -g @earendil-works/pi-coding-agent). Otherwise a shell command run in the case's folder with HB_BASE_URL, HB_API_KEY, HB_MODEL_ID, HB_EFFORT, HB_CONTEXT, HB_MAX_OUTPUT, HB_PROMPT_FILE, HB_LOG_DIR and HB_HOME (the hbench folder) set. A model's own agent_command in models.json wins over this one; tools/agent-dsh.sh (DeepSeek Harness) is an example.",
+ "agent_command": ""
+}

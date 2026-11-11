@@ -1,0 +1,10 @@
+{
+ "_comment": "Long-tier cases shipped with hbench. Add your own in cases.local.json (docs/CASES.md).",
+ "e01": {
+  "title": "RK4 time argument (example)",
+  "src": "examples/e01_rk4_time",
+  "copy": "repo",
+  "cwd": "repo",
+  "grade": "{python} {src}/grader/grade.py --workspace {cwd}"
+ }
+}

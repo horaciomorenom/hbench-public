@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hbench runs</title>
+<!-- tab icon: field lines of a dipole, r = L sin^2(theta), with the moment arrow -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3CclipPath id='c'%3E%3Crect width='32' height='32' rx='7'/%3E%3C/clipPath%3E%3Crect width='32' height='32' rx='7' fill='%2314284b'/%3E%3Cpath clip-path='url%28%23c%29' d='M16.0,16.0 L16.0,16.0 L16.0,15.9 L16.0,15.8 L16.1,15.7 L16.1,15.5 L16.2,15.3 L16.3,15.1 L16.5,14.9 L16.7,14.6 L16.9,14.4 L17.2,14.1 L17.5,13.9 L17.9,13.7 L18.2,13.5 L18.7,13.3 L19.1,13.2 L19.5,13.1 L20.0,13.1 L20.4,13.1 L20.9,13.2 L21.3,13.3 L21.7,13.5 L22.1,13.7 L22.5,13.9 L22.8,14.2 L23.0,14.5 L23.2,14.9 L23.4,15.2 L23.5,15.6 L23.5,16.0 L23.5,16.4 L23.4,16.8 L23.2,17.1 L23.0,17.5 L22.8,17.8 L22.5,18.1 L22.1,18.3 L21.7,18.5 L21.3,18.7 L20.9,18.8 L20.4,18.9 L20.0,18.9 L19.5,18.9 L19.1,18.8 L18.7,18.7 L18.2,18.5 L17.9,18.3 L17.5,18.1 L17.2,17.9 L16.9,17.6 L16.7,17.4 L16.5,17.1 L16.3,16.9 L16.2,16.7 L16.1,16.5 L16.1,16.3 L16.0,16.2 L16.0,16.1 L16.0,16.0 L16.0,16.0 M16.0,16.0 L16.0,16.0 L16.0,15.9 L16.0,15.8 L15.9,15.7 L15.9,15.5 L15.8,15.3 L15.7,15.1 L15.5,14.9 L15.3,14.6 L15.1,14.4 L14.8,14.1 L14.5,13.9 L14.1,13.7 L13.8,13.5 L13.3,13.3 L12.9,13.2 L12.5,13.1 L12.0,13.1 L11.6,13.1 L11.1,13.2 L10.7,13.3 L10.3,13.5 L9.9,13.7 L9.5,13.9 L9.2,14.2 L9.0,14.5 L8.8,14.9 L8.6,15.2 L8.5,15.6 L8.5,16.0 L8.5,16.4 L8.6,16.8 L8.8,17.1 L9.0,17.5 L9.2,17.8 L9.5,18.1 L9.9,18.3 L10.3,18.5 L10.7,18.7 L11.1,18.8 L11.6,18.9 L12.0,18.9 L12.5,18.9 L12.9,18.8 L13.3,18.7 L13.8,18.5 L14.1,18.3 L14.5,18.1 L14.8,17.9 L15.1,17.6 L15.3,17.4 L15.5,17.1 L15.7,16.9 L15.8,16.7 L15.9,16.5 L15.9,16.3 L16.0,16.2 L16.0,16.1 L16.0,16.0 L16.0,16.0 M16.0,16.0 L16.0,16.0 L16.0,15.8 L16.1,15.7 L16.1,15.4 L16.2,15.1 L16.4,14.7 L16.6,14.3 L16.9,13.9 L17.3,13.4 L17.8,13.0 L18.3,12.5 L18.8,12.1 L19.5,11.7 L20.2,11.3 L20.9,11.1 L21.7,10.8 L22.6,10.7 L23.4,10.6 L24.3,10.6 L25.1,10.8 L25.9,11.0 L26.7,11.2 L27.4,11.6 L28.0,12.1 L28.6,12.6 L29.1,13.2 L29.5,13.9 L29.8,14.6 L29.9,15.3 L30.0,16.0 L29.9,16.7 L29.8,17.4 L29.5,18.1 L29.1,18.8 L28.6,19.4 L28.0,19.9 L27.4,20.4 L26.7,20.8 L25.9,21.0 L25.1,21.2 L24.3,21.4 L23.4,21.4 L22.6,21.3 L21.7,21.2 L20.9,20.9 L20.2,20.7 L19.5,20.3 L18.8,19.9 L18.3,19.5 L17.8,19.0 L17.3,18.6 L16.9,18.1 L16.6,17.7 L16.4,17.3 L16.2,16.9 L16.1,16.6 L16.1,16.3 L16.0,16.2 L16.0,16.0 L16.0,16.0 M16.0,16.0 L16.0,16.0 L16.0,15.8 L15.9,15.7 L15.9,15.4 L15.8,15.1 L15.6,14.7 L15.4,14.3 L15.1,13.9 L14.7,13.4 L14.2,13.0 L13.7,12.5 L13.2,12.1 L12.5,11.7 L11.8,11.3 L11.1,11.1 L10.3,10.8 L9.4,10.7 L8.6,10.6 L7.7,10.6 L6.9,10.8 L6.1,11.0 L5.3,11.2 L4.6,11.6 L4.0,12.1 L3.4,12.6 L2.9,13.2 L2.5,13.9 L2.2,14.6 L2.1,15.3 L2.0,16.0 L2.1,16.7 L2.2,17.4 L2.5,18.1 L2.9,18.8 L3.4,19.4 L4.0,19.9 L4.6,20.4 L5.3,20.8 L6.1,21.0 L6.9,21.2 L7.7,21.4 L8.6,21.4 L9.4,21.3 L10.3,21.2 L11.1,20.9 L11.8,20.7 L12.5,20.3 L13.2,19.9 L13.7,19.5 L14.2,19.0 L14.7,18.6 L15.1,18.1 L15.4,17.7 L15.6,17.3 L15.8,16.9 L15.9,16.6 L15.9,16.3 L16.0,16.2 L16.0,16.0 L16.0,16.0 M16.0,16.0 L16.0,15.9 L16.0,15.7 L16.1,15.4 L16.2,14.9 L16.5,14.3 L16.8,13.6 L17.2,12.9 L17.7,12.1 L18.4,11.2 L19.2,10.4 L20.2,9.5 L21.3,8.7 L22.5,8.0 L23.8,7.3 L25.2,6.8 L26.7,6.4 L28.2,6.1 L29.8,6.0 L31.3,6.0 L32.9,6.2 L34.4,6.6 L35.8,7.2 L37.2,7.9 L38.4,8.7 L39.4,9.7 L40.3,10.8 L41.1,12.0 L41.6,13.3 L41.9,14.6 L42.0,16.0 L41.9,17.4 L41.6,18.7 L41.1,20.0 L40.3,21.2 L39.4,22.3 L38.4,23.3 L37.2,24.1 L35.8,24.8 L34.4,25.4 L32.9,25.8 L31.3,26.0 L29.8,26.0 L28.2,25.9 L26.7,25.6 L25.2,25.2 L23.8,24.7 L22.5,24.0 L21.3,23.3 L20.2,22.5 L19.2,21.6 L18.4,20.8 L17.7,19.9 L17.2,19.1 L16.8,18.4 L16.5,17.7 L16.2,17.1 L16.1,16.6 L16.0,16.3 L16.0,16.1 L16.0,16.0 M16.0,16.0 L16.0,15.9 L16.0,15.7 L15.9,15.4 L15.8,14.9 L15.5,14.3 L15.2,13.6 L14.8,12.9 L14.3,12.1 L13.6,11.2 L12.8,10.4 L11.8,9.5 L10.7,8.7 L9.5,8.0 L8.2,7.3 L6.8,6.8 L5.3,6.4 L3.8,6.1 L2.2,6.0 L0.7,6.0 L-0.9,6.2 L-2.4,6.6 L-3.8,7.2 L-5.2,7.9 L-6.4,8.7 L-7.4,9.7 L-8.3,10.8 L-9.1,12.0 L-9.6,13.3 L-9.9,14.6 L-10.0,16.0 L-9.9,17.4 L-9.6,18.7 L-9.1,20.0 L-8.3,21.2 L-7.4,22.3 L-6.4,23.3 L-5.2,24.1 L-3.8,24.8 L-2.4,25.4 L-0.9,25.8 L0.7,26.0 L2.2,26.0 L3.8,25.9 L5.3,25.6 L6.8,25.2 L8.2,24.7 L9.5,24.0 L10.7,23.3 L11.8,22.5 L12.8,21.6 L13.6,20.8 L14.3,19.9 L14.8,19.1 L15.2,18.4 L15.5,17.7 L15.8,17.1 L15.9,16.6 L16.0,16.3 L16.0,16.1 L16.0,16.0' fill='none' stroke='%238cc4ff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 21V12.5' stroke='white' stroke-width='2.6' stroke-linecap='round'/%3E%3Cpath d='M12.4 14.2L16 9.8 19.6 14.2Z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/vendor/github.min.css" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="/vendor/github-dark.min.css" media="(prefers-color-scheme: dark)">
+<script src="/vendor/highlight.min.js"></script>
+<script src="/vendor/fortran.min.js"></script><script src="/vendor/latex.min.js"></script><script src="/vendor/cmake.min.js"></script>
+<style>
+:root {
+  --bg: #f6f7f9; --panel: #fff; --ink: #1d2330; --mute: #6b7385; --line: #e2e5eb; --accent: #2f6fed;
+  --good: #1f9d55; --good-bg: #e3f5ea; --mid: #b7791f; --mid-bg: #fdf3dc; --bad: #c53030; --bad-bg: #fde4e4;
+  --code: #f1f3f6; --think: #7a8194; --tool: #2b7a99;
+  --series: #2a78d6; --series-hot: #1c5cab; --grid: #e8eaee; --axis: #c3c7cf;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12151b; --panel: #1a1e26; --ink: #e3e6ec; --mute: #8d95a7; --line: #2b313d; --accent: #6d9bff;
+    --good: #4cc282; --good-bg: #173527; --mid: #e0a84a; --mid-bg: #3a2e16; --bad: #f07070; --bad-bg: #3d1d1d;
+    --code: #222733; --think: #8b92a3; --tool: #5fb4d4;
+    --series: #3987e5; --series-hot: #86b6ef; --grid: #262b35; --axis: #3a404c;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+header { position: sticky; top: 0; z-index: 5; background: var(--panel); border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; gap: 18px; padding: 10px 20px; flex-wrap: wrap; }
+header .brand { font-weight: 700; font-size: 16px; }
+nav a { margin-right: 14px; color: var(--mute); font-weight: 500; } nav a.on { color: var(--ink); }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 9px; border-radius: 99px; background: var(--code); font-size: 12px; white-space: nowrap; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mute); display: inline-block; }
+.dot.up { background: var(--good); } .dot.live { background: var(--accent); animation: pulse 1.2s infinite; }
+@keyframes pulse { 50% { opacity: .3; } }
+.spacer { flex: 1; }
+.meter { width: 90px; height: 7px; background: var(--line); border-radius: 4px; overflow: hidden; display: inline-block; }
+.meter i { display: block; height: 100%; background: var(--good); }
+main { max-width: 1400px; margin: 0 auto; padding: 18px 20px 60px; }
+h1 { font-size: 20px; margin: 4px 0 12px; } h2 { font-size: 15px; margin: 22px 0 8px; } h3 { font-size: 14px; margin: 14px 0 6px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; }
+.muted { color: var(--mute); } .small { font-size: 12px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { font-size: 12px; color: var(--mute); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; white-space: nowrap; } .matrix td:first-child, .matrix th:first-child { text-align: left; }
+.cell { display: inline-block; min-width: 54px; padding: 3px 6px; border-radius: 5px; font-variant-numeric: tabular-nums; }
+.cell.good { background: var(--good-bg); color: var(--good); } .cell.mid { background: var(--mid-bg); color: var(--mid); }
+.cell.bad { background: var(--bad-bg); color: var(--bad); } .cell.none { color: var(--mute); }
+.cell .sub { display: block; font-size: 11px; opacity: .8; }
+.scroll { overflow-x: auto; }
+.tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--line); margin: 14px 0 0; flex-wrap: wrap; }
+.tabs button { background: none; border: 0; padding: 8px 12px; color: var(--mute); cursor: pointer; border-bottom: 2px solid transparent; font: inherit; }
+.tabs button.on { color: var(--ink); border-bottom-color: var(--accent); }
+.pane { background: var(--panel); border: 1px solid var(--line); border-top: 0; border-radius: 0 0 8px 8px; padding: 14px 16px; min-height: 200px; }
+pre, code { font: 12.5px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+pre { background: var(--code); padding: 10px 12px; border-radius: 6px; overflow: auto; white-space: pre-wrap; word-break: break-word; margin: 6px 0; }
+pre.log { max-height: 70vh; }
+code { background: var(--code); padding: 1px 4px; border-radius: 4px; }
+pre code { background: none; padding: 0; }
+.md h1, .md h2, .md h3 { margin-top: 14px; }
+.md blockquote { margin: 6px 0; padding: 2px 12px; border-left: 3px solid var(--line); color: var(--mute); }
+.md hr { border: 0; border-top: 1px solid var(--line); margin: 12px 0; }
+.md table { width: auto; margin: 6px 0; } .md td, .md th { border: 1px solid var(--line); }
+.reason .md { max-width: 900px; line-height: 1.55; } .reason .md p { margin: 0 0 10px; }
+.t-think .md { font-style: normal; color: var(--think); } .t-think .md p { margin: 0 0 8px; }
+.rtool { position: sticky; top: 52px; background: var(--panel); z-index: 2; padding: 4px 0; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button { border: 0; background: var(--panel); color: var(--mute); padding: 5px 10px; cursor: pointer; font: inherit; }
+.seg button.on { background: var(--code); color: var(--ink); }
+mark { background: #ffe58a; color: inherit; border-radius: 2px; } mark.cur { background: #ffb020; }
+@media (prefers-color-scheme: dark) { mark { background: #5c4a12; } mark.cur { background: #8a6410; } }
+pre code.hljs { background: transparent; padding: 0; }
+.t-cmd { display: inline; font: 12.5px ui-monospace, Menlo, monospace; }
+.t-edit { margin: 4px 0 4px 14px; }
+.t-edit pre { margin: 2px 0; border-left: 3px solid var(--line); }
+.t-edit pre.old { border-left-color: var(--bad); opacity: .8; } .t-edit pre.new { border-left-color: var(--good); }
+.t-edit .lbl { font-size: 11px; color: var(--mute); }
+.diff .add { color: var(--good); } .diff .del { color: var(--bad); } .diff .hunk { color: var(--accent); } .diff .file { font-weight: 700; }
+button.btn, select, input[type=number], input[type=text] { font: inherit; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+button.btn { cursor: pointer; background: var(--accent); color: #fff; border-color: var(--accent); }
+button.btn.ghost { background: var(--panel); color: var(--ink); border-color: var(--line); }
+button.btn.danger { background: var(--bad); border-color: var(--bad); }
+button.btn:disabled { opacity: .45; cursor: not-allowed; }
+button.btn.sm { padding: 2px 9px; font-size: 12px; }
+input[type=time] { font: inherit; padding: 5px 8px; border-radius: 6px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+#hdr-queue { display: inline-flex; align-items: center; gap: 6px; }
+.qstate { font-weight: 600; } .qstate.run { color: var(--good); } .qstate.wait { color: var(--mid); }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
+label { color: var(--mute); font-size: 12px; }
+.stats { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+.t-block { margin: 6px 0; }
+.t-think { color: var(--think); font-style: italic; white-space: pre-wrap; }
+.t-think summary, .t-res summary { cursor: pointer; color: var(--mute); font-style: normal; font-size: 12px; }
+.t-text { white-space: pre-wrap; }
+.t-tool { color: var(--tool); font: 12.5px ui-monospace, Menlo, monospace; margin-top: 10px; word-break: break-word; }
+.t-res pre { max-height: 360px; } .t-res.err pre { color: var(--bad); }
+.t-turn { font-size: 11px; color: var(--mute); border-top: 1px dashed var(--line); padding-top: 3px; margin-top: 8px; }
+.t-sys { font-weight: 600; font-size: 12px; margin: 8px 0; }
+.t-prompt { background: var(--code); border-left: 3px solid var(--accent); padding: 4px 14px; border-radius: 4px; }
+.files { display: grid; grid-template-columns: minmax(220px, 340px) 1fr; gap: 12px; }
+.files .list { max-height: 72vh; overflow: auto; font: 12px ui-monospace, Menlo, monospace; }
+.files .list div { padding: 2px 4px; cursor: pointer; border-radius: 3px; white-space: nowrap; }
+.files .list div:hover, .files .list div.on { background: var(--code); }
+.toast { position: fixed; bottom: 18px; right: 18px; background: var(--ink); color: var(--bg); padding: 10px 14px; border-radius: 8px; max-width: 460px; z-index: 9; }
+.ok { color: var(--good); } .no { color: var(--bad); }
+figure.fig { margin: 8px 0; } figure.fig img { max-width: min(100%, 720px); background: #fff; border: 1px solid var(--line); border-radius: 6px; }
+figure.fig figcaption { font-size: 12px; color: var(--mute); }
+.follow { font-size: 12px; color: var(--mute); }
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 12px; margin: 10px 0 14px; }
+.chart { position: relative; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px 6px; background: var(--panel); }
+.chart h4 { margin: 0 0 2px; font-size: 13px; font-weight: 600; }
+.chart .cap { font-size: 11px; color: var(--mute); margin-bottom: 4px; }
+.chart svg { display: block; width: 100%; height: 190px; overflow: visible; }
+.chart svg text { font-size: 11px; fill: var(--mute); font-variant-numeric: tabular-nums; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; } .chart .base { stroke: var(--axis); stroke-width: 1; }
+.chart .ln { fill: none; stroke: var(--series); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.chart .pt { fill: var(--series); stroke: var(--panel); stroke-width: 2; }
+.chart .bar { fill: var(--series); } .chart .bar.hot { fill: var(--series-hot); }
+.chart .xh { stroke: var(--mute); stroke-width: 1; stroke-dasharray: 3 3; }
+.chart .mk { stroke: var(--ink); stroke-opacity: .55; stroke-width: 1; stroke-dasharray: 4 3; }
+.chart svg text.mkl { fill: var(--ink); font-weight: 600; font-size: 10.5px; }
+.starts { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 12px; margin: 4px 0 2px; }
+.tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 6px 9px;
+  font-size: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.12); white-space: nowrap; z-index: 3; }
+.tip b { font-size: 13px; } .tip div { color: var(--mute); }
+.tiles { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0; }
+.tile { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; min-width: 120px; background: var(--panel); }
+.tile .v { font-size: 20px; font-weight: 600; } .tile .l { font-size: 12px; color: var(--mute); }
+@media (max-width: 720px) { .files, .charts { grid-template-columns: 1fr; } main { padding: 12px 16px 40px; } header { padding: 8px 16px; gap: 8px 12px; }
+  header .spacer, #hdr-job { display: none; } header .pill { white-space: normal; } .meter { width: 50px; } }
+</style>
+</head>
+<body>
+<header>
+  <span class="brand">hbench</span>
+  <nav id="nav">
+    <a href="#/" data-r="">Results</a><a href="#/launch" data-r="launch">Launch</a><a href="#/jobs" data-r="jobs">Jobs</a><a href="#/server" data-r="server">Server</a>
+  </nav>
+  <span class="spacer"></span>
+  <span id="hdr-job"></span>
+  <span id="hdr-queue"></span>
+  <span class="pill" id="hdr-server"><span class="dot"></span>server …</span>
+  <span class="pill" id="hdr-mempill" title="free memory">mem <span class="meter"><i id="hdr-mem-bar"></i></span> <span id="hdr-mem">…</span></span>
+</header>
+<main id="main"></main>
+<script>
+// ------------------------------------------------------------ basics
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const api = async (path, body) => {
+  const r = await fetch("/api/" + path, body ? { method: "POST", headers: { "Content-Type": "application/json", "X-HBench": "1" }, body: JSON.stringify(body) } : {});
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error || r.statusText);
+  return j;
+};
+const toast = msg => { const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; document.body.append(t); setTimeout(() => t.remove(), 5000); };
+const fmtS = s => s == null ? "" : s < 90 ? `${Math.round(s)}s` : s < 5400 ? `${Math.round(s / 60)}m` : `${(s / 3600).toFixed(1)}h`;
+const q = (o) => new URLSearchParams(o).toString();
+let timers = [];
+const every = (fn, ms) => { fn(); timers.push(setInterval(fn, ms)); };
+let STATUS = null;
+
+// Code coloring (highlight.js, served from web/vendor). Language from a fence tag or a file extension.
+const LANG_ALIAS = { py: "python", python3: "python", "c++": "cpp", cc: "cpp", cxx: "cpp", hpp: "cpp", h: "c", sh: "bash", shell: "bash", zsh: "bash",
+  console: "bash", f90: "fortran", f: "fortran", tex: "latex", yml: "yaml", js: "javascript", ts: "typescript", text: "plaintext", txt: "plaintext" };
+const AUTO = ["python", "cpp", "c", "bash", "fortran", "json", "cmake", "makefile", "latex", "yaml"];
+function hl(code, lang) {
+  if (!window.hljs || code.length > 300000) return esc(code);
+  const l = lang && (LANG_ALIAS[lang.toLowerCase()] || lang.toLowerCase());
+  try {
+    if (l === "plaintext") return esc(code);
+    if (l && hljs.getLanguage(l)) return hljs.highlight(code, { language: l, ignoreIllegals: true }).value;
+    if (lang === null) return hljs.highlightAuto(code, AUTO).value;
+  } catch { }
+  return esc(code);
+}
+// auto: true lets an untagged block be detected (model answers); false leaves it plain
+const codeBlock = (code, lang, auto = false, cls = "") => `<pre class="${cls}"><code class="hljs">${lang || auto ? hl(code, lang || null) : esc(code)}</code></pre>`;
+function langOf(path) {
+  if (!path) return null;
+  const base = path.split("/").pop(), ext = base.includes(".") ? base.split(".").pop().toLowerCase() : "";
+  if (base === "CMakeLists.txt" || ext === "cmake") return "cmake";
+  if (/^(GNU)?makefile$/i.test(base) || ext === "mk") return "makefile";
+  const map = { py: "python", c: "c", h: "cpp", cpp: "cpp", cc: "cpp", cxx: "cpp", hpp: "cpp", hh: "cpp", hxx: "cpp", cu: "cpp", f: "fortran", f90: "fortran",
+    f95: "fortran", f03: "fortran", f08: "fortran", nml: "fortran", sh: "bash", bash: "bash", zsh: "bash", slurm: "bash", sbatch: "bash", json: "json", yaml: "yaml", yml: "yaml",
+    toml: "ini", ini: "ini", cfg: "ini", md: "markdown", tex: "latex", bib: "latex", sty: "latex", js: "javascript", ts: "typescript", patch: "diff", diff: "diff" };
+  return map[ext] || null;
+}
+
+// Markdown: fences, headings, lists, tables, quotes, rules, bold, inline code, links, paragraphs.
+// Options for model reasoning: breaks keeps single line breaks; autocode turns unfenced runs of code
+// (def/for/import lines, assignments, indented blocks) into colored code blocks.
+const CODE_START = /^\s*(def |class |import |from \S+ import |return\b|for .+:\s*$|while .+:\s*$|if .+:\s*$|elif .+:\s*$|else:\s*$|try:\s*$|except\b.*:\s*$|with .+:\s*$|#include|#define|#pragma|@\w+|print\(|raise |yield |assert |pass\s*$|break\s*$|continue\s*$|[}{]\s*$|(int|double|float|void|auto|const|static|std::)\b.*[;{)]\s*$|(subroutine|function|program|module|end\s+(do|if|subroutine|function|module|program))\b|do \w+\s*=)/i;
+const ASSIGN = /^\s*[A-Za-z_][\w.\[\]]*(\s*,\s*[A-Za-z_][\w.\[\]]*)*\s*([-+*/]?=)\s*[^=\s].*[^.?!:,]\s*$/;
+const CALL = /^\s*[A-Za-z_][\w.]*\(.*\)\s*;?\s*$/;
+const isCode = l => CODE_START.test(l) || ASSIGN.test(l) || CALL.test(l);
+// Unfenced code in reasoning is short and messy, so pick the language from clear signs before falling back to auto-detection.
+const guessLang = c => /^\s*(subroutine|program|module|end\s+(do|if|subroutine)|real\s*\(|integer\s*::)/im.test(c) ? "fortran"
+  : /#include|std::|;\s*$|^\s*(int|double|float|void|auto)\s+\w/m.test(c) ? "cpp"
+  : /^\s*(def |class |import |from \S+ import |for .+:\s*$|if .+:\s*$|elif |print\(|return\b)/m.test(c) ? "python" : null;
+const strongCode = l => /^\s*(def |class |import |from \S+ import |#include|#define|subroutine |program |module )/i.test(l);
+// imgBase: a runs/ folder that relative images (a line "![caption](file.png)") are served from.
+function md(src, { breaks = false, autocode = false, imgBase = null } = {}) {
+  if (!src) return '<p class="muted">(empty)</p>';
+  const out = []; let para = [], list = null;
+  const inline = s => esc(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>")
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  const endList = () => { if (list) { out.push(`</${list}>`); list = null; } };
+  const flush = () => { if (para.length) out.push(`<p>${para.map(inline).join(breaks ? "<br>" : " ")}</p>`); para = []; endList(); };
+  const cells = l => l.trim().replace(/^\||\|$/g, "").split("|").map(c => c.trim());
+  const lines = src.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i];
+    const f = l.match(/^\s*(```|~~~)(.*)$/);
+    if (f) {
+      flush(); const body = [];
+      while (++i < lines.length && !lines[i].trim().startsWith(f[1])) body.push(lines[i]);
+      out.push(codeBlock(body.join("\n"), f[2].trim().split(/\s+/)[0] || null, true)); continue;
+    }
+    if (autocode && isCode(l) && (strongCode(l) || (i + 1 < lines.length && (isCode(lines[i + 1]) || /^\s+\S/.test(lines[i + 1]))))) {
+      flush(); const body = [l];
+      while (i + 1 < lines.length) {
+        const n = lines[i + 1];
+        if (isCode(n) || /^\s+\S/.test(n)) { body.push(n); i++; continue; }
+        if (!n.trim() && i + 2 < lines.length && /^\s+\S/.test(lines[i + 2]) && isCode(lines[i + 2].trim())) { body.push(n); i++; continue; }
+        break;
+      }
+      // Line by line: reasoning code is often half prose, and one stray quote would color the rest as a string.
+      const code = body.join("\n"), lang = guessLang(code);
+      out.push(`<pre class=""><code class="hljs">${body.map(x => lang ? hl(x, lang) : esc(x)).join("\n")}</code></pre>`); continue;
+    }
+    const im = imgBase && l.match(/^\s*!\[([^\]]*)\]\(([\w.-]+\.(?:png|jpe?g|svg))\)\s*$/);
+    if (im) { flush(); out.push(`<figure class="fig"><img src="/api/image?path=${encodeURIComponent(`${imgBase}/${im[2]}`)}" alt="${esc(im[1])}"><figcaption>${esc(im[1])}</figcaption></figure>`); continue; }
+    const h = l.match(/^(#{1,4})\s+(.*)/);
+    if (h) { flush(); out.push(`<h${h[1].length + 1}>${inline(h[2])}</h${h[1].length + 1}>`); continue; }
+    if (/^\s*([-*_])(\s*\1){2,}\s*$/.test(l)) { flush(); out.push("<hr>"); continue; }
+    if (/^\s*\|.*\|\s*$/.test(l) && i + 1 < lines.length && /^\s*\|?\s*:?-{3,}/.test(lines[i + 1])) {
+      flush(); const head = cells(l); i++; const rows = [];
+      while (i + 1 < lines.length && /^\s*\|/.test(lines[i + 1])) rows.push(cells(lines[++i]));
+      out.push(`<div class="scroll"><table><tr>${head.map(c => `<th>${inline(c)}</th>`).join("")}</tr>${rows.map(r => `<tr>${r.map(c => `<td>${inline(c)}</td>`).join("")}</tr>`).join("")}</table></div>`); continue;
+    }
+    const q = l.match(/^\s*>\s?(.*)/);
+    if (q) { flush(); const body = [q[1]]; while (i + 1 < lines.length && /^\s*>/.test(lines[i + 1])) body.push(lines[++i].replace(/^\s*>\s?/, ""));
+      out.push(`<blockquote>${md(body.join("\n"), { breaks, autocode })}</blockquote>`); continue; }
+    const li = l.match(/^\s*([-*+]|\d+[.)])\s+(.*)/);
+    if (li) { if (para.length) { const keep = list; list = null; flush(); list = keep; } const t = /\d/.test(li[1]) ? "ol" : "ul"; if (list !== t) { endList(); out.push(`<${t}>`); list = t; } out.push(`<li>${inline(li[2])}</li>`); continue; }
+    if (!l.trim()) { flush(); continue; }
+    endList();
+    para.push(l);
+  }
+  flush();
+  return `<div class="md">${out.join("")}</div>`;
+}
+// Reasoning view: rendered/raw toggle, search with match count (Enter = next), size readout.
+function reasoningView(pane, text) {
+  if (!text) { pane.innerHTML = '<p class="muted">(no reasoning)</p>'; return; }
+  const words = text.split(/\s+/).filter(Boolean).length;
+  pane.innerHTML = `<div class="row rtool"><span class="seg"><button class="on" data-m="r">Rendered</button><button data-m="raw">Raw</button></span>
+    <input type="text" placeholder="search reasoning" class="rq" style="width:220px"><span class="small muted rc"></span><span class="spacer"></span>
+    <span class="small muted">${compact(text.length)} chars · ${compact(words)} words · ${text.split(/\n\s*\n/).length} paragraphs</span></div><div class="rbody reason"></div>`;
+  const body = $(".rbody", pane), qin = $(".rq", pane), rc = $(".rc", pane);
+  let mode = "r", hits = [], at = -1;
+  const draw = () => { body.innerHTML = mode === "r" ? md(text, { breaks: true, autocode: true }) : `<pre class="log">${esc(text)}</pre>`; mark(); };
+  const mark = () => {
+    hits = []; at = -1; const term = qin.value.trim().toLowerCase(); if (!term) { rc.textContent = ""; return; }
+    const walk = document.createTreeWalker(body, NodeFilter.SHOW_TEXT), nodes = []; while (walk.nextNode()) nodes.push(walk.currentNode);
+    for (const n of nodes) {
+      const t = n.nodeValue, lt = t.toLowerCase(); let k = lt.indexOf(term); if (k < 0) continue;
+      const frag = document.createDocumentFragment(); let last = 0;
+      while (k >= 0) { frag.append(t.slice(last, k)); const m = document.createElement("mark"); m.textContent = t.slice(k, k + term.length); frag.append(m); hits.push(m); last = k + term.length; k = lt.indexOf(term, last); }
+      frag.append(t.slice(last)); n.replaceWith(frag);
+    }
+    rc.textContent = hits.length ? `${hits.length} matches · Enter for next` : "no matches";
+  };
+  let timer; qin.oninput = () => { clearTimeout(timer); timer = setTimeout(draw, 200); };
+  qin.onkeydown = e => { if (e.key !== "Enter" || !hits.length) return; if (at >= 0) hits[at].classList.remove("cur"); at = (at + 1) % hits.length;
+    hits[at].classList.add("cur"); hits[at].scrollIntoView({ block: "center" }); rc.textContent = `${at + 1} / ${hits.length}`; };
+  pane.querySelectorAll(".seg button").forEach(b => b.onclick = () => { mode = b.dataset.m; pane.querySelectorAll(".seg button").forEach(x => x.classList.toggle("on", x === b)); draw(); });
+  draw();
+}
+function diffHtml(d) {
+  if (!d) return '<p class="muted">(no diff)</p>';
+  return `<pre class="diff log">${d.split("\n").map(l => {
+    const c = l.startsWith("diff ") || l.startsWith("+++") || l.startsWith("---") ? "file" : l.startsWith("+") ? "add" : l.startsWith("-") ? "del" : l.startsWith("@@") ? "hunk" : "";
+    return `<span class="${c}">${esc(l)}</span>`; }).join("\n")}</pre>`;
+}
+// TAB: a tab named in the URL (#/fast/<model>/<item>/<tab>, the same for latex, #/long/<model>/<case>/<tab>); base: the page's hash,
+// so a tab click updates the URL without reloading the view.
+let TAB = null;
+function tabs(el, list, initial, base) {
+  el.innerHTML = `<div class="tabs">${list.map(([k, n]) => `<button data-k="${k}">${esc(n)}</button>`).join("")}</div><div class="pane"></div>`;
+  const pane = $(".pane", el);
+  let stopPane = () => {};
+  const show = k => {
+    stopPane(); stopPane = () => {};
+    el.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.k === k));
+    const t = list.find(x => x[0] === k);
+    const r = t[2](pane); if (typeof r === "function") stopPane = r;
+  };
+  el.querySelectorAll(".tabs button").forEach(b => b.onclick = () => { show(b.dataset.k); if (base) history.replaceState(null, "", `#${base}/${b.dataset.k}`); });
+  timers.push({ off: () => stopPane() });
+  const want = [TAB, initial].find(k => k && list.some(x => x[0] === k));
+  show(want || list[0][0]);
+}
+
+// ------------------------------------------------------------ live log and transcript followers
+function tailer(pane, path, { live = true, title = "" } = {}) {
+  pane.innerHTML = `${title}<div class="row follow"><label><input type="checkbox" checked> follow</label><span class="st"></span></div><pre class="log"></pre>`;
+  const pre = $("pre", pane), st = $(".st", pane), fol = $("input", pane);
+  let offset = -1, stopped = false;
+  const tick = async () => {
+    if (stopped) return;
+    try {
+      const r = await api("tail?" + q({ path, offset }));
+      if (!r.exists) { st.textContent = `${path} does not exist yet`; return; }
+      if (r.data) {
+        pre.append(r.data);
+        if (pre.textContent.length > 600000) pre.textContent = "…\n" + pre.textContent.slice(-400000);
+        if (fol.checked) pre.scrollTop = pre.scrollHeight;
+      }
+      offset = r.offset; st.textContent = `${path} · ${(r.size / 1024).toFixed(1)} KB${live ? " · live" : ""}`;
+    } catch (e) { st.textContent = e.message; }
+  };
+  tick(); const id = live ? setInterval(tick, 2000) : null;
+  return () => { stopped = true; clearInterval(id); };
+}
+function transcriptView(pane, path, live) {
+  pane.innerHTML = `<div class="row follow"><label><input type="checkbox" ${live ? "checked" : ""}> follow</label>
+    <label><input type="checkbox" class="th"> expand thinking</label><span class="st"></span></div><div class="tr"></div>`;
+  const box = $(".tr", pane), st = $(".st", pane), fol = $("input", pane), th = $(".th", pane);
+  let offset = 0, blocks = {}, lastBlock = null, stopped = false, nTools = 0, nTurns = 0; const toolOf = {};
+  th.onchange = () => box.querySelectorAll("details.t-think").forEach(d => d.open = th.checked);
+  const render = ev => {
+    for (const e of ev) {
+      // Blocks are keyed by pi's contentIndex: a reply's text can start before its thinking block ends.
+      if (e.t === "open") {
+        let b;
+        if (e.k === "thinking") { b = document.createElement("details"); b.className = "t-block t-think"; b.open = th.checked || live;
+          b.innerHTML = "<summary>thinking</summary><div></div>"; box.append(b); b.body = $("div", b); }
+        else { b = document.createElement("div"); b.className = "t-block t-text"; box.append(b); b.body = b; }
+        blocks[e.i ?? "x"] = b; lastBlock = b;
+      } else if (e.t === "add") {
+        let b = blocks[e.i ?? "x"] || lastBlock;
+        if (!b) { b = document.createElement("div"); b.className = "t-block t-text"; box.append(b); b.body = b; blocks[e.i ?? "x"] = lastBlock = b; }
+        b.body.append(e.s);
+      } else if (e.t === "close") {
+        const b = blocks[e.i ?? "x"] || lastBlock;
+        if (b) { const raw = b.body.textContent, think = b.tagName === "DETAILS";
+          if (raw.trim()) b.body.innerHTML = md(raw, { breaks: true, autocode: think });
+          if (think) { $("summary", b).textContent = `thinking (${raw.length} chars)`; if (!th.checked) b.open = false; } }
+        delete blocks[e.i ?? "x"]; if (b === lastBlock) lastBlock = null;
+      }
+      else if (e.t === "tool") { nTools++; if (e.id) toolOf[e.id] = e; const d = document.createElement("div"); d.className = "t-tool";
+        const head = e.name === "bash" && e.command ? `▶ <b>bash</b>: <code class="t-cmd hljs">${hl(e.command, "bash")}</code>` : `▶ <b>${esc(e.name)}</b>: ${esc(e.shown)}`;
+        let body = "";
+        if (e.edits) body = e.edits.map((x, i) => `<details class="t-edit" open><summary class="lbl">edit ${e.edits.length > 1 ? i + 1 : ""} · −${x.old.split("\n").length} +${x.new.split("\n").length} lines</summary>` +
+          `${codeBlock(x.old, langOf(e.path), false, "old")}${codeBlock(x.new, langOf(e.path), false, "new")}</details>`).join("");
+        else if (e.content != null) body = `<details class="t-edit"><summary class="lbl">content · ${e.content.split("\n").length} lines</summary>${codeBlock(e.content, langOf(e.path), false, "new")}</details>`;
+        else if (e.extra) body = `<details><summary>arguments</summary>${codeBlock(e.extra, "json")}</details>`;
+        d.innerHTML = head + body; box.append(d); }
+      else if (e.t === "result") { const lines = e.s.split("\n"); const d = document.createElement("details"); d.className = "t-res" + (e.err ? " err" : "");
+        const src = toolOf[e.id], lang = !e.err && (e.name || src?.name) === "read" ? langOf(src?.path) : null;
+        d.open = lines.length <= 12; d.innerHTML = `<summary>${e.err ? "error · " : ""}result · ${lines.length} lines</summary>` + (lang ? codeBlock(e.s, lang) : `<pre>${esc(e.s)}</pre>`); box.append(d); }
+      else if (e.t === "turn") { nTurns++; blocks = {}; lastBlock = null; const d = document.createElement("div"); d.className = "t-turn";
+        d.innerHTML = `turn ${nTurns}: ${e.inp} in / ${e.cached} cached / ${e.out} out · stop=${esc(e.stop)}` + (e.err ? ` <span class="no">${esc(e.err)}</span>` : ""); box.append(d); }
+      else if (e.t === "prompt") { const d = document.createElement("div"); d.className = "t-prompt"; d.innerHTML = md(e.s); box.append(d); }
+      else if (e.t === "sys") { const d = document.createElement("div"); d.className = "t-sys"; d.textContent = "■ " + e.s; box.append(d); }
+    }
+  };
+  const tick = async () => {
+    if (stopped) return;
+    try {
+      const r = await api("transcript?" + q({ path, offset }));
+      if (!r.exists) { st.textContent = "no transcript yet"; return; }
+      if (r.events.length) { render(r.events); if (fol.checked) window.scrollTo(0, document.body.scrollHeight); }
+      offset = r.offset; st.textContent = `${nTurns} turns · ${nTools} tool calls${live ? " · live" : ""}`;
+    } catch (e) { st.textContent = e.message; }
+  };
+  tick(); const id = live ? setInterval(tick, 2500) : null;
+  return () => { stopped = true; clearInterval(id); };
+}
+const textPane = (path, fmt = "pre") => async pane => {
+  pane.innerHTML = '<p class="muted">loading…</p>';
+  try { const r = await api("file?" + q({ path }));
+    pane.innerHTML = r.binary ? `<p class="muted">binary file, ${r.size} bytes</p>` : fmt === "md" ? md(r.text) : fmt === "diff" ? diffHtml(r.text)
+      : fmt === "code" && langOf(path) ? codeBlock(r.text, langOf(path), false, "log") : `<pre class="log">${esc(r.text)}</pre>`;
+  } catch (e) { pane.innerHTML = `<p class="no">${esc(e.message)}</p>`; }
+};
+
+// ------------------------------------------------------------ queue (../jobq.py)
+// "HH:MM" from an <input type=time> -> epoch seconds of its next occurrence
+const atEpoch = v => { if (!v) return null; const [h, m] = v.split(":").map(Number); const d = new Date(); d.setHours(h, m, 0, 0);
+  if (d <= new Date()) d.setDate(d.getDate() + 1); return d.getTime() / 1000; };
+const dayTime = t => (new Date(t * 1000).toDateString() === new Date().toDateString() ? "" : "tomorrow ") + hhmm(t);
+const PAUSE_MSG = "Pause now?\n\nThe running job is killed and its current run is lost: a fast or LaTeX run redoes the item it was on (finished items are kept), "
+  + "a long case reruns from scratch. It goes back to the front of the queue, the model server is stopped to free the memory, and nothing runs until you resume.";
+async function queueOp(body, ask) {
+  if (ask && !confirm(ask)) return;
+  try { const r = await api("queue", body); toast(r.message); setTimeout(refreshStatus, 800); setTimeout(refreshStatus, 4000); } catch (e) { toast(e.message); }
+}
+const queued = Q => Q.items.filter(i => i.status === "queued").length;
+function queueSummary(Q) {
+  const n = queued(Q);
+  const st = Q.paused ? (Q.start_at ? `starts ${dayTime(Q.start_at)}` : "paused") : "running";
+  return `queue ${st} · ${n} waiting${Q.pause_at ? ` · pauses ${dayTime(Q.pause_at)}` : ""}`;
+}
+$("#hdr-queue").onclick = e => {
+  if (e.target.id === "hdr-pause") queueOp({ op: "pause" }, PAUSE_MSG);
+  if (e.target.id === "hdr-resume") queueOp({ op: "start" });
+};
+
+// ------------------------------------------------------------ header status
+async function refreshStatus() {
+  try { STATUS = await api("status"); } catch { return; }
+  const s = STATUS.server, m = STATUS.mem;
+  $("#hdr-server").innerHTML = s.up_ports.length ? `<span class="dot up"></span>${esc(s.model || "unknown")} :${s.up_ports.join(",")}` : `<span class="dot"></span>no server`;
+  $("#hdr-mem").textContent = `${m.level}% · swap ${m.swap_used}`; $("#hdr-mempill").title = m.what || "free memory";
+  const bar = $("#hdr-mem-bar"); bar.style.width = m.level + "%"; bar.style.background = m.level < 8 ? "var(--bad)" : m.level < 15 ? "var(--mid)" : "var(--good)";
+  const j = STATUS.jobs[0];
+  $("#hdr-job").innerHTML = j ? `<a class="pill" href="#/jobs"><span class="dot live"></span>${esc(j.kind)} ${esc(j.args.join(" "))} · ${esc(j.etime)}</a>` : "";
+  const Q = STATUS.queue, n = queued(Q);
+  const html = (j ? `<button class="btn sm danger" id="hdr-pause" title="Stop the running job and the model server; it goes back to the front of the queue">Pause</button>` : "")
+    + (n || !Q.paused ? `<a class="pill" href="#/jobs">${esc(queueSummary(Q))}</a>` : "")
+    + (Q.paused && n && !j ? `<button class="btn sm" id="hdr-resume">${Q.start_at ? "Start now" : "Resume"}</button>` : "");
+  const hq = $("#hdr-queue"); if (hq.dataset.h !== html) { hq.innerHTML = html; hq.dataset.h = html; }
+  document.dispatchEvent(new Event("status"));
+}
+setInterval(refreshStatus, 3000);
+
+// ------------------------------------------------------------ server log charts
+const median = a => { if (!a.length) return null; const b = [...a].sort((x, y) => x - y); const m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; };
+const compact = v => v == null ? "–" : Math.abs(v) >= 1e6 ? (v / 1e6).toFixed(1) + "M" : Math.abs(v) >= 1e4 ? (v / 1e3).toFixed(0) + "K" : Math.abs(v) >= 1e3 ? +(v / 1e3).toFixed(1) + "K" : Math.abs(v) >= 100 ? Math.round(v) + "" : (+v.toFixed(1)) + "";
+const hhmm = t => new Date(t * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+const hhmmss = t => new Date(t * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+function niceTicks(max, n = 4) {
+  if (!(max > 0)) return [0, 1];
+  const raw = max / n, mag = 10 ** Math.floor(Math.log10(raw)), step = [1, 2, 2.5, 5, 10].map(k => k * mag).find(k => k >= raw);
+  const out = []; for (let v = 0; v <= max + 1e-9; v += step) out.push(+v.toFixed(10)); if (out.at(-1) < max) out.push(out.at(-1) + step); return out;
+}
+function timeTicks(a, b, n = 5) {
+  const span = b - a, steps = [60, 120, 300, 600, 900, 1800, 3600, 7200, 10800, 21600]; const st = steps.find(s => span / s <= n) || 43200;
+  const out = []; for (let t = Math.ceil(a / st) * st; t <= b; t += st) out.push(t); return out;
+}
+// One chart: kind line (time x), scatter (numeric x) or bars (request order). pts: [{x, y, tip: [strong, ...lines]}]
+function chart(box, { title, cap, kind, pts, xTime, xLabel, yFmt = compact, gapBreak, marks = [] }) {
+  const el = document.createElement("div"); el.className = "chart"; box.append(el);
+  el.innerHTML = `<h4></h4><div class="cap"></div>`; $("h4", el).textContent = title; $(".cap", el).textContent = cap || "";
+  if (!pts.length) { el.insertAdjacentHTML("beforeend", '<p class="muted small">No data in this window.</p>'); return; }
+  // Draw after layout: all chart shells are in the grid by then, so each measures its real width.
+  requestAnimationFrame(() => drawChart(el, { title, kind, pts, xTime, yFmt, gapBreak, marks }));
+}
+// marks: run starts. Time charts get them at their time; bar charts (request order) before the first request of the run.
+function drawChart(el, { title, kind, pts, xTime, yFmt, gapBreak, marks }) {
+  const W = Math.max(280, el.clientWidth - 24), H = 190, L = 44, R = 10, T = marks.length ? 30 : 8, B = 24, pw = W - L - R, ph = H - T - B;
+  const ys = niceTicks(Math.max(...pts.map(p => p.y)) * 1.05), ymax = ys.at(-1);
+  let x0, x1, X;
+  if (kind === "bars") { X = i => L + (i + 0.5) * pw / pts.length; }
+  else { x0 = Math.min(...pts.map(p => p.x), ...marks.map(m => m.x)); x1 = Math.max(...pts.map(p => p.x)); if (x1 === x0) { x0 -= 30; x1 += 30; } if (!xTime) x0 = 0;
+    X = v => L + (v - x0) / (x1 - x0) * pw; }
+  const Y = v => T + ph - v / ymax * ph;
+  let g = ys.map(v => `<line class="grid" x1="${L}" x2="${W - R}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${L - 6}" y="${Y(v) + 4}" text-anchor="end">${yFmt(v)}</text>`).join("");
+  g += `<line class="base" x1="${L}" x2="${W - R}" y1="${T + ph}" y2="${T + ph}"/>`;
+  if (kind === "bars") { const every = Math.ceil(pts.length / 8); pts.forEach((p, i) => { if (i % every === 0) g += `<text x="${X(i)}" y="${H - 6}" text-anchor="middle">${i + 1}</text>`; }); }
+  else if (xTime) timeTicks(x0, x1).forEach(t => g += `<text x="${X(t)}" y="${H - 6}" text-anchor="middle">${hhmm(t)}</text>`);
+  else niceTicks(x1, 5).filter(v => v <= x1 * 1.02).forEach(v => g += `<text x="${X(v)}" y="${H - 6}" text-anchor="middle">${compact(v)}</text>`);
+  let lastX = -1e9, row = 0;
+  for (const m of marks) {
+    const mx = kind === "bars" ? L + m.i * pw / pts.length : X(m.x);
+    if (mx < L - 1 || mx > W - R + 1) continue;
+    row = mx - lastX < 70 ? 1 - row : 0; lastX = mx;
+    g += `<g><title>${esc(m.title)}</title><line class="mk" x1="${mx}" x2="${mx}" y1="${T - 18 + row * 11}" y2="${T + ph}"/>` +
+      `<text class="mkl" x="${mx > W - R - 40 ? mx - 3 : mx + 3}" text-anchor="${mx > W - R - 40 ? "end" : "start"}" y="${T - 10 + row * 11}">${esc(m.label)}</text></g>`;
+  }
+  let marks_ = "";
+  if (kind === "line") {
+    let d = "", prev = null;
+    for (const p of pts) { d += (prev && !(gapBreak && p.x - prev.x > gapBreak) ? "L" : "M") + X(p.x).toFixed(1) + "," + Y(p.y).toFixed(1); prev = p; }
+    marks_ = `<path class="ln" d="${d}"/>`;
+    if (pts.length < 60) marks_ += pts.map(p => `<circle class="pt" r="4" cx="${X(p.x)}" cy="${Y(p.y)}"/>`).join("");
+  } else if (kind === "scatter") marks_ = pts.map(p => `<circle class="pt" r="4" cx="${X(p.x)}" cy="${Y(p.y)}"/>`).join("");
+  else { const bw = Math.max(1, pw / pts.length - 2);
+    marks_ = pts.map((p, i) => `<rect class="bar" data-i="${i}" x="${X(i) - bw / 2}" y="${Y(p.y)}" width="${bw}" height="${Math.max(0, T + ph - Y(p.y))}" rx="${bw >= 6 ? 2 : 0}"/>`).join(""); }
+  el.insertAdjacentHTML("beforeend", `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}">${g}${marks_}<line class="xh" y1="${T}" y2="${T + ph}" style="display:none"/><rect class="hit" x="${L}" y="${T}" width="${pw}" height="${ph}" fill="transparent"/></svg>`);
+  const svg = $("svg", el), xh = $(".xh", svg), tip = document.createElement("div"); tip.className = "tip"; tip.style.display = "none"; el.append(tip);
+  let hot = null;
+  const hide = () => { tip.style.display = "none"; xh.style.display = "none"; if (hot) hot.classList.remove("hot"); hot = null; };
+  $(".hit", svg).addEventListener("pointerleave", hide);
+  $(".hit", svg).addEventListener("pointermove", ev => {
+    const r = svg.getBoundingClientRect(), mx = (ev.clientX - r.left) * W / r.width, my = (ev.clientY - r.top) * H / r.height;
+    let best = null, bd = Infinity, bi = -1;
+    pts.forEach((p, i) => { const px = kind === "bars" ? X(i) : X(p.x), d = kind === "scatter" ? Math.hypot(px - mx, Y(p.y) - my) : Math.abs(px - mx); if (d < bd) { bd = d; best = p; bi = i; } });
+    if (!best || (kind === "scatter" && bd > 30)) return hide();
+    const px = kind === "bars" ? X(bi) : X(best.x);
+    if (kind === "line") { xh.setAttribute("x1", px); xh.setAttribute("x2", px); xh.style.display = ""; }
+    if (kind === "bars") { if (hot) hot.classList.remove("hot"); hot = svg.querySelector(`rect[data-i="${bi}"]`); hot.classList.add("hot"); }
+    tip.replaceChildren(); const [strong, ...rest] = best.tip; const b = document.createElement("b"); b.textContent = strong; tip.append(b);
+    for (const line of rest) { const d = document.createElement("div"); d.textContent = line; tip.append(d); }
+    tip.style.display = ""; const left = px * r.width / W + 12 + 12, maxL = el.clientWidth - tip.offsetWidth - 4;
+    tip.style.left = Math.min(left, maxL) + "px"; tip.style.top = (Y(best.y) * r.height / H + 30) + "px";
+  });
+}
+// Stat tiles + three charts + table for one model's server log, optionally limited to a run's time window.
+function serverPane(model, win, live) {
+  return pane => {
+    pane.innerHTML = `<div class="sc"><p class="muted">loading…</p></div><div class="lg"></div>`;
+    const sc = $(".sc", pane); let stopped = false, showTable = false, last = null;
+    const stopTail = tailer($(".lg", pane), `runs/server-${model}.log`, { live, title: '<h3>Raw log</h3>' });
+    const draw = S => {
+      if (!S.exists) { sc.innerHTML = `<p class="muted">No server log for ${esc(model)} (runs/server-${esc(model)}.log is written by server.sh up and replaced on each start).</p>`; return; }
+      if (S.kind === "none") { sc.innerHTML = `<p class="muted">This server's log has no per-request timings (bmoe-server doesn't print them), so there is nothing to chart.</p>`; return; }
+      const R = S.requests, llama = S.kind === "llama";
+      const startsBefore = i => S.starts.filter(m => (i === 0 || R[i - 1].t0 < m.t - 2) && (i === R.length || R[i].t0 >= m.t - 2));
+      const outTok = R.reduce((a, r) => a + (r.gen_n || 0), 0), busy = R.reduce((a, r) => a + (r.t - r.t0), 0);
+      const dec = median(R.filter(r => r.gen_tps).map(r => r.gen_tps));
+      const pre = llama ? median(R.filter(r => r.prompt_tps && r.prompt_n >= 64).map(r => r.prompt_tps)) : median(R.map(r => r.ttft));
+      const scope = win ? `this run's window (${hhmm(win.start)}–${win.end ? hhmm(win.end) : "now"})` : `since the server started at ${hhmmss(S.started)}`;
+      const tiles = [["Requests", compact(R.length)], ["Output tokens", compact(outTok)], ["Median decode", dec == null ? "–" : `${dec.toFixed(1)} t/s`],
+        llama ? ["Median prompt reading", pre == null ? "–" : `${compact(pre)} t/s`] : ["Median TTFT", pre == null ? "–" : `${pre.toFixed(1)} s`],
+        ["Busy time", fmtS(busy) || "0s"]];
+      if (S.guard) tiles.push(["Lowest free memory", `${S.guard.min_level}%`]);
+      sc.innerHTML = `<div class="row small muted">Server log for ${esc(model)}, ${scope}${live ? " · live" : ""} <button class="btn ghost tb" style="padding:2px 8px;font-size:12px">${showTable ? "Charts" : "Table"}</button></div>
+        <div class="tiles">${tiles.map(([l, v]) => `<div class="tile"><div class="v">${esc(v)}</div><div class="l">${esc(l)}</div></div>`).join("")}</div>
+        ${S.starts.length ? `<div class="starts"><span class="muted">Runs started (dashed lines):</span>${S.starts.map(m =>
+          `<a class="pill" href="${esc(m.link)}">${hhmm(m.t)} · <b>${esc(m.label)}</b> <span class="muted">${esc(m.detail)}</span></a>`).join("")}</div>` : ""}<div class="charts"></div>`;
+      $(".tb", sc).onclick = () => { showTable = !showTable; draw(last); };
+      const box = $(".charts", sc);
+      if (showTable) {
+        box.style.display = "block";
+        box.innerHTML = `<div class="scroll"><table><tr><th>end</th><th>new prompt tokens</th>${llama ? "<th>prompt t/s</th>" : "<th>cached</th><th>TTFT</th>"}<th>output tokens</th><th>decode t/s</th><th>duration</th></tr>${R.map((r, i) => startsBefore(i).map(m =>
+          `<tr><td colspan="7"><b>▸ ${esc(m.label)}</b> started ${hhmmss(m.t)} <span class="muted">${esc(m.detail)}</span></td></tr>`).join("") +
+          `<tr><td>${hhmmss(r.t)}</td><td>${r.prompt_n ?? ""}</td>${llama ? `<td>${r.prompt_tps ?? ""}</td>` : `<td>${r.cached}</td><td>${r.ttft}s</td>`}<td>${r.gen_n ?? ""}</td><td>${r.gen_tps ?? ""}</td><td>${fmtS(r.t - r.t0)}</td></tr>`).join("")}${startsBefore(R.length).map(m =>
+          `<tr><td colspan="7"><b>▸ ${esc(m.label)}</b> started ${hhmmss(m.t)} <span class="muted">${esc(m.detail)} (no request finished yet)</span></td></tr>`).join("")}</table></div>`;
+        return;
+      }
+      const timeMarks = S.starts.map(m => ({ x: m.t, label: m.label, title: `${m.detail} · started ${hhmmss(m.t)}` }));
+      const P = S.progress.length ? S.progress.map(p => ({ x: p.t, y: p.tps, tip: [`${p.tps.toFixed(1)} t/s`, hhmmss(p.t), `${p.n} tokens into the reply`] }))
+        : R.filter(r => r.gen_tps).map(r => ({ x: r.t, y: r.gen_tps, tip: [`${r.gen_tps} t/s`, `request ending ${hhmmss(r.t)}`, `${r.gen_n} output tokens`] }));
+      chart(box, { title: "Decode speed", cap: S.progress.length ? "tokens per second over the last 3 s, sampled while generating" : "tokens per second, one point per request", kind: "line", pts: P, xTime: true, gapBreak: 15, marks: timeMarks });
+      if (llama) chart(box, { title: "Prompt reading speed by prompt size", cap: "tokens per second vs new (uncached) prompt tokens, one dot per request", kind: "scatter",
+        pts: R.filter(r => r.prompt_tps).map(r => ({ x: r.prompt_n, y: r.prompt_tps, tip: [`${compact(r.prompt_tps)} t/s`, `${r.prompt_n} new prompt tokens`, `in ${(r.prompt_ms / 1000).toFixed(1)} s · ${hhmmss(r.t0)}`] })) });
+      else chart(box, { title: "Time to first token by prompt size", cap: "seconds vs new (uncached) prompt tokens, one dot per request", kind: "scatter", yFmt: v => v + "s",
+        pts: R.map(r => ({ x: r.prompt_n, y: r.ttft, tip: [`${r.ttft} s`, `${r.prompt_n} new prompt tokens (${r.cached} cached)`, hhmmss(r.t)] })) });
+      const BR = R.filter(r => r.gen_n != null);
+      const barMarks = S.starts.map(m => { const i = BR.findIndex(r => r.t0 >= m.t - 2); return { i: i < 0 ? BR.length : i, label: m.label, title: `${m.detail} · started ${hhmmss(m.t)}` }; });
+      chart(box, { title: "Output tokens per request", cap: "in request order", kind: "bars", marks: barMarks,
+        pts: BR.map((r, i) => ({ y: r.gen_n, tip: [`${r.gen_n.toLocaleString()} tokens`, `request ${i + 1}, ended ${hhmmss(r.t)}`, `${fmtS(r.t - r.t0)} · ${r.gen_tps} t/s`] })) });
+    };
+    const tick = async () => {
+      if (stopped) return;
+      try { last = await api("server_stats?" + q({ model, ...(win ? { since: win.start } : {}), ...(win && win.end ? { until: win.end } : {}) })); draw(last); }
+      catch (e) { sc.innerHTML = `<p class="no">${esc(e.message)}</p>`; }
+    };
+    tick(); const id = live ? setInterval(tick, 5000) : null;
+    const rs = () => last && draw(last); window.addEventListener("resize", rs);
+    return () => { stopped = true; clearInterval(id); stopTail(); window.removeEventListener("resize", rs); };
+  };
+}
+
+// ------------------------------------------------------------ views
+const cls = (s, mx) => s == null || !mx ? "none" : s / mx >= 0.9 ? "good" : s / mx >= 0.5 ? "mid" : "bad";
+const judgeStr = j => j ? ` [${j.score}/${j.max}]` : "";
+
+const tierItems = (R, tier) => (tier === "latex" ? R.latex_items : R.items) || [];
+
+async function viewResults(main) {
+  main.innerHTML = `<h1>Results</h1><div id="res"><p class="muted">loading…</p></div>`;
+  const draw = async () => {
+    const R = await api("results");
+    let h = "";
+    for (const [tier, heading] of [["fast", "Fast tier · short suite (29 checks)"], ["latex", "LaTeX tier · one-shot documents (137 checks)"]]) {
+    const rows = R[tier] || {}, listed = tierItems(R, tier);
+    const items = listed.length ? listed : [...new Set(Object.values(rows).flatMap(r => Object.keys(r.items)))].sort().map(id => ({ id, title: id }));
+    h += `<div class="card"><h2 style="margin-top:0">${heading}</h2><div class="scroll"><table class="matrix"><tr><th>model</th><th>total</th>${items.map(i => `<th title="${esc(i.title)}">${i.id}</th>`).join("")}</tr>`;
+    for (const [m, r] of Object.entries(rows)) {
+      const t = r.total;
+      h += `<tr><td><a href="#/${tier}/${m}">${esc(m)}</a> ${r.live ? '<span class="dot live" title="running"></span>' : ""}</td>
+        <td>${t ? `<span class="cell ${cls(t.score, t.max)}"><b>${t.score}/${t.max}</b><span class="sub">${fmtS(t.seconds)} · ${t.truncated.length} trunc${t.attempts_max > 1 ? ` · mean of ${t.attempts === t.attempts_max ? t.attempts : `${t.attempts}–${t.attempts_max}`}` : ""}</span></span>` : '<span class="cell none">–</span>'}</td>`;
+      for (const it of items) {
+        const c = r.items[it.id] || { status: "missing" };
+        let body, k = "none";
+        const reps = (c.attempt_scores || []).length > 1 ? `<span class="sub">${c.attempt_scores.join(" · ")}</span>` : "";
+        const tip = (c.attempt_scores || []).length > 1 ? ` title="mean of ${c.attempt_scores.length} attempts: ${c.attempt_scores.join(", ")}"` : "";
+        if (c.status === "graded") { k = cls(c.auto, c.max); body = `<span${tip}>${c.pending ? '<span class="dot live"></span> ' : ""}${c.auto}/${c.max}${judgeStr(c.judge)}${c.truncated ? " T" : ""}</span>${reps || `<span class="sub">${fmtS(c.seconds)}</span>`}`; }
+        else if (c.status === "ungraded") body = `answered${c.truncated ? " T" : ""}<span class="sub">${fmtS(c.seconds)} · ${c.tokens} tok</span>`;
+        else if (c.status === "running") body = `<span class="dot live"></span> running`;
+        else if (c.status === "incomplete") body = "incomplete";
+        else body = "–";
+        h += `<td>${c.status === "missing" ? `<span class="cell none">–</span>` : `<a href="#/${tier}/${m}/${it.id}"><span class="cell ${k}">${body}</span></a>`}</td>`;
+      }
+      h += "</tr>";
+    }
+    h += `</table></div><p class="small muted">T = hit the token limit · [judge score] from review.json · "answered" = not graded yet (grading runs when the suite finishes) · with several attempts the cell shows their mean, and each attempt's score below it</p></div>`;
+    }
+    h += `<div class="card"><h2 style="margin-top:0">Long tier · agentic cases</h2><div class="scroll"><table class="matrix"><tr><th>model</th>${R.cases.map(c => `<th>${c}</th>`).join("")}</tr>`;
+    for (const [m, r] of Object.entries(R.long)) {
+      h += `<tr><td>${esc(m)}</td>`;
+      for (const c of R.cases) {
+        const x = r[c];
+        if (!x) { h += `<td><span class="cell none">–</span></td>`; continue; }
+        const L = x.latest;
+        let body, k = "none";
+        if (x.live) body = `<span class="dot live"></span> running`;
+        else if (L) { k = L.score == null ? "bad" : cls(L.score, L.max);
+          body = `${L.score == null ? "err" : `${L.score}/${L.max}`}${L.status !== "completed" ? "*" : ""}${L.task_version ? "†" : ""}${judgeStr(x.judge)}<span class="sub">${Math.round(L.seconds / 60)}m${x.runs > 1 ? ` · ${x.runs} runs` : ""}</span>`; }
+        else body = "no result";
+        h += `<td><a href="#/long/${m}/${c}"><span class="cell ${k}">${body}</span></a></td>`;
+      }
+      h += "</tr>";
+    }
+    h += `</table></div><p class="small muted">* timeout or agent error · † graded on an earlier task version (not comparable) · c cases: sanity /40, judge in [ ]</p></div>`;
+    $("#res").innerHTML = h;
+  };
+  every(draw, 10000);
+}
+
+async function viewFastModel(main, model, tier = "fast") {
+  main.innerHTML = `<h1><a href="#/">Results</a> / ${tier} / ${esc(model)}</h1><div id="fm"></div><div id="fmt"></div>`;
+  const r = await api("fast_model?" + q({ model, tier }));
+  const R = await api("results"); const row = (R[tier] || {})[model] || { items: {} };
+  const live = STATUS?.jobs.some(j => j.kind === tier && j.model === model);
+  $("#fm").innerHTML = `<div class="card"><div class="scroll"><table><tr><th>item</th><th>title</th><th>status</th><th>score</th><th>time</th><th>tokens</th><th>judge</th></tr>${tierItems(R, tier).map(i => {
+    const c = row.items[i.id] || {}; return `<tr><td><a href="#/${tier}/${model}/${i.id}">${i.id}</a></td><td>${esc(i.title)}</td><td>${esc(c.status)}${c.truncated ? " · truncated" : ""}</td>
+    <td>${c.auto != null ? `${c.auto}/${c.max}${(c.attempt_scores || []).length > 1 ? ` <span class="muted small">(${c.attempt_scores.join(", ")})</span>` : ""}` : ""}</td><td>${fmtS(c.seconds)}</td><td>${c.tokens ?? ""}</td><td>${c.judge ? `${c.judge.score}/${c.judge.max}` : ""}</td></tr>`; }).join("")}</table></div>
+    ${r.total ? `<p><b>Total ${r.total.score}/${r.total.max}</b> · ${fmtS(r.total.seconds)} · ${r.total.completion_tokens} tokens · truncated: ${r.total.truncated.join(", ") || "none"}</p>` : ""}</div>`;
+  tabs($("#fmt"), [
+    ["log", `${tier}.log` + (live ? " (live)" : ""), p => tailer(p, r.log_path, { live })],
+    ["grade", "grade.txt", p => { p.innerHTML = `<pre class="log">${esc(r.grade_txt || "(not graded yet)")}</pre>`; }],
+    ["server", "Server log", serverPane(model, r.window, live)],
+  ]);
+}
+
+async function viewFastItem(main, model, item, tier = "fast", attempt = 1) {
+  main.innerHTML = `<h1><a href="#/">Results</a> / <a href="#/${tier}/${model}">${tier} / ${esc(model)}</a> / ${esc(item)}</h1><div id="fi"><p class="muted">loading…</p></div>`;
+  const r = await api("fast_item?" + q({ model, item, tier, attempt }));
+  const m = r.meta, g = r.grade;
+  const running = !m && STATUS?.jobs.some(j => j.kind === tier && j.model === model);
+  $("#fi").innerHTML = `<div class="card"><b>${esc(r.title || item)}</b>
+    ${r.n_attempts > 1 ? `<div class="row"><label>attempt</label> ${Array.from({ length: r.n_attempts }, (_, i) => i + 1).map(n => `<button class="btn ${n === r.attempt ? "" : "ghost"} sm" data-att="${n}">${n}</button>`).join(" ")}
+      ${r.mean != null ? `<span class="pill">mean <b>${r.mean}/${g?.max ?? "?"}</b> over ${(g?.attempts || []).length} graded</span>` : ""}</div>` : ""}
+    <div class="stats">${g ? `<span class="pill"><b>${g.auto}/${g.max}</b> checks${r.n_attempts > 1 ? ` (attempt ${r.attempt})` : ""}</span>` : '<span class="pill">not graded</span>'}
+    ${r.review ? `<span class="pill">judge ${r.review.score}/${r.review.max}</span>` : ""}
+    ${m ? `<span class="pill">${fmtS(m.seconds)}</span><span class="pill">ttft ${m.ttft}s · ${m.answer_start != null ? `answer at ${m.answer_start}s` : "no answer text"}</span><span class="pill">${m.completion_tokens} tokens / ${m.max_tokens}</span>
+    <span class="pill ${m.truncated ? "no" : ""}">finish ${esc(m.finish_reason)}</span><span class="pill">effort ${esc(m.effort)}</span>` : ""}</div>
+    ${running ? `<p class="muted">Running. run.py writes the response when the item finishes; the server log tab shows progress.</p>` : ""}
+    ${r.review ? `<p><b>Judge:</b> ${esc(r.review.verdict || "")}</p>${(r.review.errors || []).length ? `<ul>${r.review.errors.map(e => `<li>${esc(e)}</li>`).join("")}</ul>` : ""}` : ""}</div><div id="fit"></div>`;
+  main.querySelectorAll("[data-att]").forEach(b => b.onclick = () => viewFastItem(main, model, item, tier, +b.dataset.att));
+  tabs($("#fit"), [
+    ["resp", "Response", p => { p.innerHTML = r.response ? md(r.response) : `<p class="muted">${m && m.truncated ? "Empty: the model spent the whole token budget thinking (see Reasoning)." : "(empty)"}</p>`; }],
+    ...(g?.figure ? [["page", "Rendered page", p => { p.innerHTML = `<figure class="fig"><img src="/api/image?path=${encodeURIComponent(`runs/${model}/${tier}/judge/${g.figure}`)}" alt="First page of the compiled document"></figure>`; }]] : []),
+    ["reason", "Reasoning", p => reasoningView(p, r.reasoning)],
+    ["checks", "Checks", p => { p.innerHTML = g ? `<div class="scroll"><table><tr><th></th><th>check</th><th>detail</th></tr>${g.checks.map(c => `<tr><td class="${c.ok ? "ok" : "no"}">${c.ok ? "✓" : "✗"}</td><td>${esc(c.name)}${c.heuristic ? ' <span class="muted small">(heuristic)</span>' : ""}</td><td><code>${esc(c.detail)}</code></td></tr>`).join("")}</table></div>${g.error ? `<pre class="no">${esc(g.error)}</pre>` : ""}` : '<p class="muted">Not graded yet.</p>'; }],
+    ["prompt", "Prompt", p => { p.innerHTML = r.prompt ? md(r.prompt) + (r.oracle_notes ? `<h3>Oracle notes</h3>${md(r.oracle_notes)}` : "") : '<p class="muted">Prompt unavailable (suites/ is locked while a long run is active).</p>'; }],
+    ["judge", "Judge packet", p => { p.innerHTML = r.judge_packet ? pdfButton(`runs/${model}/${tier}/${r.judge_dir}/${item}.md`) + md(r.judge_packet, { imgBase: `runs/${model}/${tier}/${r.judge_dir}` }) : '<p class="muted">No judge packet yet (written by grade.py).</p>'; }],
+    ["server", "Server log", serverPane(model, r.window, running)],
+  ], running ? "server" : m && !r.response ? "reason" : "resp", `/${tier}/${model}/${item}`);
+}
+
+async function viewLong(main, model, kase) {
+  main.innerHTML = `<h1><a href="#/">Results</a> / long / ${esc(model)} / ${esc(kase)}</h1><div id="lr"><p class="muted">loading…</p></div>`;
+  const r = await api("long_run?" + q({ model, case: kase }));
+  const job = STATUS?.jobs.find(j => j.kind === "long" && j.model === model && j.case === kase);
+  const live = !!job, b = r.base, has = f => r.logs.includes(f);
+  const rv = r.review;
+  $("#lr").innerHTML = `<div class="card">
+    ${job ? `<div class="row"><span class="pill"><span class="dot live"></span>running · ${esc(job.phase)} · ${esc(job.etime)}</span>
+      ${job.agent_pid ? `<button class="btn ghost" id="stopA">Stop agent and grade</button>` : ""}<button class="btn danger" id="abort">Abort</button></div>` : ""}
+    <div class="scroll"><table><tr><th>#</th><th>status</th><th>score</th><th>time</th><th>output tokens</th><th>turns</th><th>note</th></tr>
+    ${r.history.map((h, i) => `<tr><td>${i + 1}</td><td>${esc(h.status)}</td><td><span class="cell ${h.score == null ? "bad" : cls(h.score, h.max)}">${h.score ?? "err"}/${h.max ?? "?"}</span>${h.judge_needed ? " (needs judge)" : ""}</td>
+      <td>${fmtS(h.seconds)}</td><td>${h.output_tokens}</td><td>${h.turns}</td><td class="small muted">${esc(h.task_version || h.source || "")}</td></tr>`).join("") || `<tr><td colspan="7" class="muted">no result line yet</td></tr>`}</table></div>
+    ${rv ? `<h3>Judge review: ${rv.score}/${rv.max}</h3><p>${esc(rv.verdict || "")}</p>${(rv.errors || []).length ? `<ul>${rv.errors.map(e => `<li>${esc(e)}</li>`).join("")}</ul>` : ""}` : ""}</div><div id="lt"></div>`;
+  if (live) { const done = () => { if (!STATUS.jobs.some(j => j.pid === job.pid)) route(); };
+    document.addEventListener("status", done); timers.push({ off: () => document.removeEventListener("status", done) }); }
+  if (job) {
+    if ($("#stopA")) $("#stopA").onclick = () => stopJob(job.pid, "agent");
+    $("#abort").onclick = () => stopJob(job.pid, "abort");
+  }
+  const T = [["tr", "Transcript" + (live ? " (live)" : ""), p => transcriptView(p, `${b}/logs/agent.jsonl`, live)]];
+  for (const [f, n] of [["long.log", "long.log"], ["bench.log", "bench.log"]]) if (has(f) || (live && f === "long.log")) T.push([f, n, p => tailer(p, `${b}/logs/${f}`, { live })]);
+  if (has("grade.txt")) T.push(["grade", "Grade", textPane(`${b}/logs/grade.txt`)]);
+  if (has("diff.patch")) T.push(["diff", "Diff", textPane(`${b}/logs/diff.patch`, "diff")]);
+  if (has("prompt.md")) T.push(["prompt", "Prompt", textPane(`${b}/logs/prompt.md`, "md")]);
+  if (r.review_md) T.push(["review", "REVIEW.md", p => { p.innerHTML = md(r.review_md); }]);
+  if (has("judge_packet.md")) T.push(["packet", "Judge packet", p => { p.innerHTML = pdfButton(`${b}/logs/judge_packet.md`) + "<div></div>";
+    textPane(`${b}/logs/judge_packet.md`, "md")(p.lastElementChild); }]);
+  for (const f of ["agent.err", "peek.txt"]) if (has(f)) T.push([f, f, p => tailer(p, `${b}/logs/${f}`, { live })]);
+  if (r.has_work) T.push(["files", "Workspace", p => filesView(p, `${b}/work`)]);
+  T.push(["server", "Server log", serverPane(model, r.window, live)]);
+  tabs($("#lt"), T, null, `/long/${model}/${kase}`);
+}
+
+async function filesView(pane, root) {
+  pane.innerHTML = `<div class="files"><div><input type="text" placeholder="filter" style="width:100%;margin-bottom:6px"><div class="list"></div></div><div class="view muted">Pick a file.</div></div>`;
+  const list = $(".list", pane), view = $(".view", pane), flt = $("input", pane);
+  const files = await api("tree?" + q({ path: root }));
+  const draw = () => { const f = flt.value.toLowerCase(); list.innerHTML = files.filter(x => x.path.toLowerCase().includes(f)).map(x =>
+    `<div data-p="${esc(x.path)}" title="${x.size} bytes">${esc(x.path.slice(root.length + 1))}</div>`).join("") || '<span class="muted">no files</span>'; };
+  flt.oninput = draw; draw();
+  list.onclick = e => { const d = e.target.closest("div[data-p]"); if (!d) return; list.querySelectorAll(".on").forEach(x => x.classList.remove("on")); d.classList.add("on");
+    const p = d.dataset.p; view.classList.remove("muted"); view.innerHTML = `<div class="small muted">${esc(p)}</div>`; const box = document.createElement("div"); view.append(box);
+    textPane(p, p.endsWith(".md") ? "md" : p.endsWith(".patch") || p.endsWith(".diff") ? "diff" : "code")(box); };
+}
+
+// "Save as PDF" for a judge packet: app.py renders it (pandoc + headless Chrome) and the browser downloads it.
+const pdfButton = path => `<div class="row" style="justify-content:flex-end;margin-top:0"><button class="btn ghost sm" data-pdf="${esc(path)}">Save as PDF</button></div>`;
+document.addEventListener("click", async e => {
+  const b = e.target.closest("[data-pdf]"); if (!b) return;
+  b.disabled = true; b.textContent = "Making PDF…";
+  try {
+    const r = await fetch("/api/pdf?" + q({ path: b.dataset.pdf }));
+    if (!r.ok) throw new Error((await r.json()).error || r.statusText);
+    const name = (r.headers.get("Content-Disposition") || "").match(/filename="([^"]+)"/)?.[1] || "judge-packet.pdf";
+    const a = document.createElement("a"); a.href = URL.createObjectURL(await r.blob()); a.download = name; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 10000); toast(`saved ${name}`);
+  } catch (err) { toast(err.message); }
+  b.disabled = false; b.textContent = "Save as PDF";
+});
+
+async function stopJob(pid, mode) {
+  const msg = mode === "agent" ? "Stop the agent now? long.sh then grades what it has (status agent_exit_143)."
+    : "Abort this job? The agent and the script are killed; nothing is graded. A fast or LaTeX run resumes later from the next unfinished item.";
+  if (!confirm(msg)) return;
+  try { const r = await api("stop", { pid, mode }); toast(r.message); setTimeout(() => { refreshStatus(); route(); }, 1500); } catch (e) { toast(e.message); }
+}
+
+function viewLaunch(main) {
+  const M = Object.keys(STATUS?.models || {});
+  main.innerHTML = `<h1>Launch</h1><div id="busy"></div>
+  <div class="card"><h2 style="margin-top:0">Fast tier · short suite</h2>
+    <div class="row"><label>model</label><select id="f-model">${M.map(m => `<option>${m}</option>`).join("")}</select>
+      <label>max tokens</label><input type="number" id="f-max" value="32768" step="1024" style="width:110px">
+      <label>effort</label><select id="f-eff"><option>low</option><option selected>medium</option><option>high</option></select>
+      <label title="total attempts per item; finished attempts are kept and the item scores their mean">attempts</label><input type="number" id="f-att" value="1" min="1" max="20" style="width:60px"></div>
+    <div class="row" id="f-ids"></div>
+    <div class="row"><button class="btn" id="f-go">Run now</button><button class="btn ghost" id="f-q">Add to queue</button><button class="btn ghost" id="f-self">Selftest (grade reference answers)</button></div>
+    <p class="small muted">Starts the model's server if needed and leaves it up. Finished items are skipped (an interrupted run resumes); delete an item's folder to redo it. No items ticked = all.
+      Attempts N: each item gets N attempts in total (the ones already there count), and its score is the mean.</p></div>
+  <div class="card"><h2 style="margin-top:0">LaTeX tier · one-shot documents</h2>
+    <div class="row"><label>model</label><select id="x-model">${M.map(m => `<option>${m}</option>`).join("")}</select>
+      <label>max tokens</label><input type="number" id="x-max" value="32768" step="1024" style="width:110px">
+      <label>effort</label><select id="x-eff"><option>low</option><option selected>medium</option><option>high</option></select></div>
+    <div class="row" id="x-ids"></div>
+    <div class="row"><button class="btn" id="x-go">Run now</button><button class="btn ghost" id="x-q">Add to queue</button><button class="btn ghost" id="x-self">Selftest (grade reference answers)</button></div>
+    <p class="small muted">Same rules as the fast tier. Each answer is compiled with pdflatex and graded on the PDF. Needs TeX Live and poppler.</p></div>
+  <div class="card"><h2 style="margin-top:0">Long tier · one agentic case</h2>
+    <div class="row"><label>model</label><select id="l-model">${M.map(m => `<option>${m}</option>`).join("")}</select>
+      <label>case</label><select id="l-case"></select>
+      <label>limit (min)</label><input type="number" id="l-lim" value="180" style="width:90px">
+      <label><input type="checkbox" id="l-fresh"> FRESH (delete the existing run first)</label></div>
+    <div class="row"><button class="btn" id="l-go">Run now</button><button class="btn ghost" id="l-q">Add to queue</button></div>
+    <p class="small muted">pi runs in a fresh copy of the case; suites/ is locked while it runs; graded at the end. Follow it on the run's page.</p></div>
+  <p class="small muted">Add to queue: the job waits in the queue on the <a href="#/jobs">Jobs</a> page until you start the queue (now or at a set time).</p>`;
+  let RES = null;
+  api("results").then(R => { RES = R;
+    $("#l-case").innerHTML = R.cases.map(c => `<option value="${esc(c)}">${esc(c)} · ${esc(R.case_titles[c] || "")}</option>`).join("");
+    for (const [pre, tier] of [["f", "fast"], ["x", "latex"]]) {
+      $(`#${pre}-ids`).innerHTML = '<label>items</label> ' + tierItems(R, tier).map(i => `<label title="${esc(i.title)}"><input type="checkbox" value="${i.id}"> ${i.id}</label>`).join(" ")
+      + ` <button class="btn ghost sm" id="${pre}-all"></button>`;
+      const boxes = [...main.querySelectorAll(`#${pre}-ids input`)], all = $(`#${pre}-all`);
+      const sync = () => { all.textContent = boxes.every(b => b.checked) ? "Deselect all" : "Select all"; };
+      all.onclick = () => { const on = !boxes.every(b => b.checked); boxes.forEach(b => b.checked = on); sync(); };
+      boxes.forEach(b => b.onchange = sync); sync();
+    } });
+  const busy = () => { const j = STATUS?.jobs[0];
+    $("#busy").innerHTML = j ? `<div class="card"><span class="dot live"></span> <b>${esc(j.kind)} ${esc(j.args.join(" "))}</b> is running (${esc(j.etime)}). One job at a time: stop it on the <a href="#/jobs">Jobs</a> page first, or add this one to the queue.</div>` : "";
+    main.querySelectorAll("#f-go,#f-self,#x-go,#x-self,#l-go").forEach(b => b.disabled = !!j); };
+  busy(); document.addEventListener("status", busy); timers.push({ off: () => document.removeEventListener("status", busy) });
+  const go = async body => { try { const r = await api("launch", body); toast(`started ${r.argv.join(" ")}`); await refreshStatus();
+    location.hash = body.kind === "long" ? `#/long/${body.model}/${body.case}` : ["fast", "latex"].includes(body.kind) ? `#/${body.kind}/${body.model}` : `#/job/${r.id}`; } catch (e) { toast(e.message); } };
+  const oneShotBody = (pre, kind) => ({ kind, model: $(`#${pre}-model`).value, max_tokens: +$(`#${pre}-max`).value, effort: $(`#${pre}-eff`).value,
+    ids: [...main.querySelectorAll(`#${pre}-ids input:checked`)].map(x => x.value) });
+  const fastBody = () => ({ ...oneShotBody("f", "fast"), attempts: +$("#f-att").value || 1 });
+  $("#f-go").onclick = () => go(fastBody());
+  $("#f-q").onclick = () => queueOp({ op: "add", ...fastBody() });
+  $("#f-self").onclick = () => go({ kind: "selftest" });
+  $("#x-go").onclick = () => go(oneShotBody("x", "latex"));
+  $("#x-q").onclick = () => queueOp({ op: "add", ...oneShotBody("x", "latex") });
+  $("#x-self").onclick = () => go({ kind: "latex_selftest" });
+  $("#l-go").onclick = async () => {
+    const body = { kind: "long", model: $("#l-model").value, case: $("#l-case").value, limit: Math.round(+$("#l-lim").value * 60), fresh: $("#l-fresh").checked };
+    if (body.fresh && !confirm(`FRESH deletes runs/${body.model}/long/${body.case} (workspace and logs) before starting. Continue?`)) return;
+    go(body);
+  };
+  $("#l-q").onclick = () => {
+    const body = { op: "add", kind: "long", model: $("#l-model").value, case: $("#l-case").value, limit: Math.round(+$("#l-lim").value * 60), fresh: $("#l-fresh").checked };
+    const exists = RES?.long?.[body.model]?.[body.case]?.has_dir;
+    queueOp(body, body.fresh ? `FRESH: when this job starts it deletes runs/${body.model}/long/${body.case} (workspace and logs). Queue it?`
+      : exists ? `runs/${body.model}/long/${body.case} already exists, so without FRESH this job will fail when it starts. Queue it anyway?` : null);
+  };
+}
+
+function viewJobs(main) {
+  main.innerHTML = `<h1>Jobs</h1>
+  <div class="card"><h2 style="margin-top:0">Queue</h2>
+    <div class="row" id="q-state"></div>
+    <div class="row"><button class="btn" id="q-start">Start now</button><button class="btn danger" id="q-pause">Pause now</button>
+      <span class="muted">·</span><label>start at</label><input type="time" id="q-start-at"><button class="btn ghost sm" id="q-start-set">Set</button>
+      <span class="muted">·</span><label>pause at</label><input type="time" id="q-pause-at"><button class="btn ghost sm" id="q-pause-set">Set</button></div>
+    <div class="row"><label><input type="checkbox" id="q-keep"> keep the model server up when the queue finishes</label>
+      <button class="btn ghost sm" id="q-clear">Clear finished</button></div>
+    <div id="q-items"></div>
+    <p class="small muted">Jobs run one at a time, in order; add them from <a href="#/launch">Launch</a> (or <code>jobq.py add</code> in a shell). The queue
+      switches the model server when the next job needs another model. <b>Pause</b> kills the running job, whether it came from the queue, Run now
+      or a shell; that run is lost (a fast or LaTeX run redoes the item it was on, a long case reruns from scratch). The job goes back to the front of the
+      queue and the model server is stopped. When the queue runs out it stops the server and pauses itself. While it works it keeps the Mac
+      awake (macOS <code>caffeinate -is</code>, on AC power; Linux <code>systemd-inhibit</code>; off on WSL, so set Windows not to sleep while plugged in). It keeps running if this page or the UI
+      server is closed; its log is <a href="#/job/queue">web/jobs/queue.log</a>.</p></div>
+  <div id="jr"></div><div id="jh"></div>`;
+  const qBody = $("#q-items");
+  qBody.onclick = e => { const b = e.target.closest("[data-q]"); if (!b) return;
+    const [op, id] = b.dataset.q.split(":"); queueOp(op === "rm" ? { op: "remove", id } : { op: "move", id, dir: op }, op === "rm" ? "Remove this job from the queue?" : null); };
+  $("#q-start").onclick = () => queueOp({ op: "start" });
+  $("#q-pause").onclick = () => queueOp({ op: "pause" }, PAUSE_MSG);
+  $("#q-start-set").onclick = () => { const at = atEpoch($("#q-start-at").value); if (!at) return toast("pick a time");
+    queueOp({ op: "start", at }, STATUS?.jobs.length ? "A job is running now; it finishes first, then the queue waits for the start time. OK?" : null); };
+  $("#q-pause-set").onclick = () => { const at = atEpoch($("#q-pause-at").value); if (!at) return toast("pick a time"); queueOp({ op: "pause", at }); };
+  $("#q-keep").onchange = e => queueOp({ op: "keep_server", value: e.target.checked });
+  $("#q-clear").onclick = () => queueOp({ op: "clear" });
+  $("#q-state").onclick = e => { const b = e.target.closest("[data-cancel]"); if (b) queueOp({ op: b.dataset.cancel }); };
+  const drawQueue = Q => {
+    const n = queued(Q), live = STATUS.jobs.length > 0;
+    const cls = !Q.paused ? "run" : Q.start_at ? "wait" : "";
+    const html = `<span class="qstate ${cls}">${Q.paused ? (Q.start_at ? `Waiting to start at ${dayTime(Q.start_at)}` : "Paused") : "Running"}</span>
+      ${Q.note ? `<span class="muted">(${esc(Q.note)})</span>` : ""} <span class="muted">· ${n} waiting · runner ${Q.runner_alive ? "up" : "not running"}</span>
+      ${Q.start_at ? `<button class="btn ghost sm" data-cancel="cancel_start_at">cancel start</button>` : ""}
+      ${Q.pause_at ? `<span class="muted">· pauses at ${dayTime(Q.pause_at)}</span> <button class="btn ghost sm" data-cancel="cancel_pause_at">cancel pause</button>` : ""}`;
+    if ($("#q-state").dataset.h !== html) { $("#q-state").innerHTML = html; $("#q-state").dataset.h = html; }
+    $("#q-start").disabled = !Q.paused || !n;
+    $("#q-start").textContent = Q.paused && Q.items.some(i => (i.tries || 0) > 0 && i.status === "queued") ? "Resume" : "Start now";
+    $("#q-pause").disabled = !live && Q.paused;
+    $("#q-keep").checked = !!Q.keep_server;
+    const status = i => i.status === "running" ? `<span class="dot live"></span> running` : i.status === "done" ? '<span class="ok">done</span>'
+      : i.status === "failed" ? `<span class="no">failed${i.rc != null ? ` (exit ${i.rc})` : ""}</span>` : i.tries ? `queued · retry ${i.tries}` : "queued";
+    const t = Q.items.length ? `<div class="scroll"><table><tr><th>job</th><th>status</th><th>note</th><th>added</th><th>log</th><th></th></tr>${Q.items.map(i =>
+      `<tr><td><code>${esc(i.argv.join(" "))}</code>${Object.keys(i.env).length ? ` <span class="small muted">${esc(Object.entries(i.env).map(([k, v]) => `${k}=${v}`).join(" "))}</span>` : ""}</td>
+      <td>${status(i)}</td><td class="small">${esc(i.note || "")}</td><td class="small">${esc(new Date(i.added * 1000).toLocaleString([], { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }))}</td>
+      <td>${i.job ? `<a href="#/job/${i.job}">log</a>` : ""}</td>
+      <td style="white-space:nowrap">${i.status === "queued" ? `<button class="btn ghost sm" data-q="up:${i.id}" title="move up">↑</button> <button class="btn ghost sm" data-q="down:${i.id}" title="move down">↓</button> <button class="btn ghost sm" data-q="rm:${i.id}">remove</button>`
+        : i.status !== "running" ? `<button class="btn ghost sm" data-q="rm:${i.id}">remove</button>` : ""}</td></tr>`).join("")}</table></div>` : '<p class="muted">Empty. Add jobs from <a href="#/launch">Launch</a>.</p>';
+    if (qBody.dataset.h !== t) { qBody.innerHTML = t; qBody.dataset.h = t; }
+  };
+  const draw = () => {
+    const S = STATUS; if (!S) return;
+    drawQueue(S.queue);
+    $("#jr").innerHTML = `<div class="card"><h2 style="margin-top:0">Running</h2>${S.jobs.length ? `<div class="scroll"><table><tr><th>job</th><th>elapsed</th><th>phase</th><th>started from</th><th></th></tr>${S.jobs.map(j => {
+      const link = j.kind === "long" ? `#/long/${j.model}/${j.case}` : ["fast", "latex"].includes(j.kind) ? `#/${j.kind}/${j.model}` : "#/server";
+      return `<tr><td><span class="dot live"></span> <a href="${link}">${esc(j.kind)} ${esc(j.args.join(" "))}</a></td><td>${esc(j.etime)}</td><td>${esc(j.phase || "")}</td>
+      <td>${j.queue_item ? `<a href="#/job/${j.ui_job}">queue (log)</a>` : j.ui_job ? `<a href="#/job/${j.ui_job}">this UI (log)</a>` : "shell"}</td>
+      <td>${j.kind !== "server" ? `<button class="btn ghost" data-pause="1" title="Kill it, requeue it at the front, stop the server">Pause</button> ` : ""}${j.agent_pid ? `<button class="btn ghost" data-stop="${j.pid}" data-mode="agent">Stop agent and grade</button> ` : ""}<button class="btn danger" data-stop="${j.pid}" data-mode="abort">Abort</button></td></tr>`; }).join("")}</table></div>` : '<p class="muted">Nothing running.</p>'}</div>`;
+    $("#jh").innerHTML = `<div class="card"><h2 style="margin-top:0">Started from this UI or the queue</h2>${S.recent.length ? `<div class="scroll"><table><tr><th>id</th><th>command</th><th>env</th><th>exit</th></tr>${S.recent.map(j =>
+      `<tr><td><a href="#/job/${j.id}">${j.id}</a></td><td><code>${esc(j.argv.join(" "))}</code></td><td class="small">${esc(Object.entries(j.env).map(([k, v]) => `${k}=${v}`).join(" "))}</td>
+      <td>${j.rc == null ? '<span class="dot live"></span>' : j.rc === 0 ? '<span class="ok">0</span>' : `<span class="no">${j.rc}</span>`}</td></tr>`).join("")}</table></div>` : '<p class="muted">None yet.</p>'}</div>`;
+    main.querySelectorAll("[data-stop]").forEach(b => b.onclick = () => stopJob(+b.dataset.stop, b.dataset.mode));
+    main.querySelectorAll("[data-pause]").forEach(b => b.onclick = () => queueOp({ op: "pause" }, PAUSE_MSG));
+  };
+  draw(); document.addEventListener("status", draw); timers.push({ off: () => document.removeEventListener("status", draw) });
+}
+
+function viewJob(main, id) {
+  if (id === "queue") { main.innerHTML = `<h1><a href="#/jobs">Jobs</a> / queue log</h1><div class="card" id="jl"></div>`;
+    const stop = tailer($("#jl"), "web/jobs/queue.log", { live: true }); timers.push({ off: stop }); return; }
+  const j = STATUS?.recent.find(x => x.id === id);
+  main.innerHTML = `<h1><a href="#/jobs">Jobs</a> / ${esc(id)}</h1>${j ? `<p><code>${esc(j.argv.join(" "))}</code></p>` : ""}<div class="card" id="jl"></div>`;
+  const stop = tailer($("#jl"), `web/jobs/${id}.log`, { live: true }); timers.push({ off: stop });
+}
+
+function viewServer(main) {
+  const M = Object.keys(STATUS?.models || {});
+  main.innerHTML = `<h1>Server</h1><div class="card"><div id="sv"></div>
+    <div class="row"><select id="s-model">${M.map(m => `<option>${m}</option>`).join("")}</select><button class="btn" id="s-up">Start (server.sh up)</button>
+    <button class="btn danger" id="s-down">Stop (server.sh down)</button></div>
+    <p class="small muted">One model server at a time. Start runs config.json's <code>before_start</code> hook (if set), then the model's serve script (under the <code>wrap</code> hook, if set). Models without a serve script are external: hbench only checks that they answer.</p></div><div id="slog"></div>`;
+  const draw = () => { const s = STATUS?.server; if (!s) return;
+    $("#sv").innerHTML = s.up_ports.length ? `<p><span class="dot up"></span> <b>${esc(s.model || "unknown")}</b> on :${s.up_ports.join(", ")}</p>` : `<p class="muted">No server up.</p>`;
+    $("#s-up").disabled = !!s.up_ports.length || !!STATUS.jobs.length; };
+  draw(); document.addEventListener("status", draw); timers.push({ off: () => document.removeEventListener("status", draw) });
+  const sel = $("#s-model"); if (STATUS?.server.recorded && M.includes(STATUS.server.recorded)) sel.value = STATUS.server.recorded;
+  let stopLog = () => {};
+  const showLog = () => { stopLog(); stopLog = serverPane(sel.value, null, true)($("#slog")); };
+  sel.onchange = showLog; showLog(); timers.push({ off: () => stopLog() });
+  $("#s-up").onclick = async () => { try { const r = await api("launch", { kind: "server_up", model: sel.value }); toast("starting " + sel.value); location.hash = `#/job/${r.id}`; } catch (e) { toast(e.message); } };
+  $("#s-down").onclick = async () => {
+    if (STATUS?.jobs.length && !confirm("A job is running and needs this server. Stop the server anyway?")) return;
+    try { await api("launch", { kind: "server_down" }); toast("stopping server"); setTimeout(refreshStatus, 3000); } catch (e) { toast(e.message); } };
+}
+
+// ------------------------------------------------------------ router
+let stopView = () => {};
+async function route() {
+  timers.forEach(t => t.off ? t.off() : clearInterval(t)); timers = []; stopView();
+  if (!STATUS) await refreshStatus();
+  const parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean).map(decodeURIComponent);
+  TAB = ["fast", "latex", "long"].includes(parts[0]) && parts.length === 4 ? parts[3] : null;
+  document.querySelectorAll("#nav a").forEach(a => a.classList.toggle("on", a.dataset.r === (parts[0] && ["launch", "jobs", "server"].includes(parts[0]) ? parts[0] : parts[0] === "job" ? "jobs" : "")));
+  const main = $("#main");
+  try {
+    if (!parts.length) await viewResults(main);
+    else if (["fast", "latex"].includes(parts[0]) && parts.length === 2) await viewFastModel(main, parts[1], parts[0]);
+    else if (["fast", "latex"].includes(parts[0])) await viewFastItem(main, parts[1], parts[2], parts[0]);
+    else if (parts[0] === "long") await viewLong(main, parts[1], parts[2]);
+    else if (parts[0] === "launch") viewLaunch(main);
+    else if (parts[0] === "jobs") viewJobs(main);
+    else if (parts[0] === "job") viewJob(main, parts[1]);
+    else if (parts[0] === "server") viewServer(main);
+    else main.innerHTML = "<p>Not found.</p>";
+  } catch (e) { main.innerHTML = `<p class="no">${esc(e.message)}</p>`; }
+}
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>

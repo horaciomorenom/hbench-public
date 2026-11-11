@@ -1,0 +1,14 @@
+{
+ "_comment": "Copy to models.json and keep the entries you use. Fields and recipes: docs/BACKENDS.md. With a serve script hbench starts and stops the server; without one it only uses it (external).",
+ "mock": {"serve": "tools/mock_backend.py", "port": 8099, "id": "mock", "label": "Mock backend (reference answers, no GPU)"},
+ "qwen-llamacpp": {"serve": "backends/llamacpp-qwen.sh", "port": 8081, "id": "qwen3-8b", "label": "Qwen3 8B Q4_K_M llama.cpp",
+                   "context": 32768, "max_output": 32768},
+ "ollama-qwen": {"base_url": "http://127.0.0.1:11434/v1", "id": "qwen3:8b", "label": "Qwen3 8B via Ollama (external)",
+                 "context": 32768, "max_output": 32768},
+ "lmstudio": {"base_url": "http://127.0.0.1:1234/v1", "id": "qwen/qwen3-8b", "label": "LM Studio (external)", "effort": false},
+ "remote-api": {"base_url": "https://openrouter.ai/api/v1", "id": "qwen/qwen3-235b-a22b", "api_key_env": "OPENROUTER_API_KEY",
+                "label": "Qwen3 235B via OpenRouter", "context": 131072, "max_output": 32768},
+ "deepseek-pro": {"base_url": "https://api.deepseek.com/v1", "id": "deepseek-v4-pro", "api_key_env": "DEEPSEEK_API_KEY",
+                  "label": "DeepSeek V4 Pro (API, DeepSeek Harness)", "context": 1000000, "max_output": 32768, "effort": "high",
+                  "agent_command": "\"$HB_HOME/tools/agent-dsh.sh\""}
+}

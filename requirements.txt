@@ -1,0 +1,4 @@
+# For the graders (fast tier oracles, example case). The scripts, queue and web UI need only the standard library.
+numpy
+scipy
+matplotlib

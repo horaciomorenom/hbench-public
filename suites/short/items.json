@@ -1,0 +1,73 @@
+[
+ {
+  "id": "p01",
+  "title": "Convergence-order plot (plotting code)",
+  "budget_tokens": 400,
+  "prompt": "prompts/p01.md",
+  "oracle_notes": "with `h=[0.2,0.1,0.05,0.025]` and `err=0.3*h**2*(1±1%)`, the returned order is\nwithin 0.05 of 2, both axes are log scale, and the figure contains a text annotation\nand a legend.",
+  "figure_note": "`plot_convergence(h, err)` as the oracle called it, on its test data: h = 0.2, 0.1, 0.05, 0.025 and err = 0.3·h² with ±1% alternating noise (true order 2). Rendered by the grader with matplotlib (Agg, 150 dpi)."
+ },
+ {
+  "id": "p02",
+  "title": "Silo (calculus word problem)",
+  "budget_tokens": 350,
+  "prompt": "prompts/p02.md",
+  "oracle_notes": "9.8 h. Key step: V = 0.75π h³, so dh/dt = 60000π / (2.25π h²). Automatic: the ANSWER line only; the judge checks the cone volume."
+ },
+ {
+  "id": "p03",
+  "title": "Simpson's rule and observed order",
+  "budget_tokens": 400,
+  "prompt": "prompts/p03.md",
+  "oracle_notes": "S10 = 0.693150 (6 d.p.), error at n=10 about 3.05e-6, observed order within\n3.8 to 4.2, theory says 4. Automatic: S10, observed order, and the `THEORY_ORDER: 4` line."
+ },
+ {
+  "id": "p04",
+  "title": "Does this ODE need a stiff solver?",
+  "budget_tokens": 450,
+  "prompt": "prompts/p04.md",
+  "oracle_notes": "a printed number within 1e-3 relative of `exp(-10)` (the prompt asks for 6 significant figures; scipy's default tolerances give about 7e-3). Reasoning check: the model notices the\nright-hand side simplifies exactly to `-y`, so it is not stiff. Penalize \"it has a\ncoefficient of 1000, use Radau\" without simplifying. Automatic: the printed number and the `STIFF: no` line; the judge checks the\nreason given."
+ },
+ {
+  "id": "p05",
+  "title": "Householder QR for least squares",
+  "budget_tokens": 800,
+  "prompt": "prompts/p05.md",
+  "oracle_notes": "`||QR-A||/||A||<1e-13`, `||QᵀQ-I||<1e-13`, QR residual matches\n`np.linalg.lstsq` to 1e-10. Reference residuals: QR 1.7e-13, normal equations 1.1e-6.\nExplanation should mention that forming AᵀA squares the condition number. Automatic: the numbers above, and no library qr/lstsq called by\n`householder_qr` or `lstsq_qr` (a self-test under `__main__` may use them); the judge checks the explanation."
+ },
+ {
+  "id": "p06",
+  "title": "Gauss-Legendre nodes and weights by Newton's method",
+  "budget_tokens": 700,
+  "prompt": "prompts/p06.md",
+  "oracle_notes": "for n=64, nodes and weights match `leggauss` to 1e-13, and the rule integrates\n`exp(x)` on [-1,1] to within 1e-14 of `e - 1/e`. Weight formula:\n`w = 2 / ((1-x²) P_n'(x)²)`. Automatic: also no leggauss/roots_legendre called by `gauss_legendre`."
+ },
+ {
+  "id": "p07",
+  "title": "Positivity-preserving nonlinear conduction (solver)",
+  "budget_tokens": 900,
+  "prompt": "prompts/p07.md",
+  "oracle_notes": "∑u conserved to 1e-12 relative; `min(u) >= 1` (maximum principle); N=200\nvs N=400 (cell-averaged) differ by under 5e-3 in RMS (reference gives 5e-6). Timestep:\n`dt = cfl*dx²/(2*max κ)` with cfl ≤ 1. The judge checks the stated restriction uses max κ."
+ },
+ {
+  "id": "p08",
+  "title": "Linear Hasegawa-Mima waves (derive, then implement)",
+  "budget_tokens": 1000,
+  "prompt": "prompts/p08.md",
+  "oracle_notes": "ω = -v* ky / (1+k²), exact φ = cos(kx x + ky y + v* ky t/(1+k²)). Relative L2\nerror below 1e-6 (reference gives 1.4e-8). Penalize a wrong sign of ω or missing the\n`1+k²` denominator. Automatic: `omega()` evaluated at four points (one with v*≠1) and the solver error;\nthe judge checks the derivation."
+ },
+ {
+  "id": "p09",
+  "title": "Dipole with a source surface (derive, then code)",
+  "budget_tokens": 800,
+  "prompt": "prompts/p09.md",
+  "oracle_notes": "with `den = 1 + 2 R_ss³`,\n`B_r = B0 (1 + 2R_ss³/r³)/den · cosθ`, `B_θ = -B0 (1 - R_ss³/r³)/den · sinθ`.\nChecks: `B_r(1,θ)=B0 cosθ`, `B_θ(R_ss,θ)=0`, div and curl below 1e-8 (reference\nabout 1e-11). `B_r(R_ss, 0) ≈ 0.09302`."
+ },
+ {
+  "id": "p10",
+  "title": "Find the bugs (review, short output)",
+  "budget_tokens": 500,
+  "prompt": "prompts/p10.md",
+  "oracle_notes": "two bugs. (a) the timestep uses the mean of κ instead of the max, which\nviolates the stability limit near the peak and the solution goes negative and blows up\n(reference: min u about -2.5e6). (b) the right boundary flux is copied from the interior\ninstead of set to zero, so heat leaks out and ∑u is not conserved (reference drift\n2.9e-6). The fixed version conserves ∑u to 1e-12 and stays at min u >= 1. Score each bug\nseparately. The code checks cover both fixes; the judge checks the explanations."
+ }
+]
